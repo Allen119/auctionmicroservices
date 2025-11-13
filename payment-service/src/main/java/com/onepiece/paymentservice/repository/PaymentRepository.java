@@ -8,8 +8,12 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface PaymentRepository extends JpaRepository<Payments, Integer> {
+
+    //all payments done by buyer
     @Query("SELECT p FROM Payments p WHERE p.sellerId = :sellerId AND p.createdBy = p.sellerId")
     List<Payments> findBuyerPayments(Integer sellerId);
+
+    //all payments got to seller(done by buyers)
     @Query("SELECT p FROM Payments p WHERE p.buyerId = :buyerId AND p.createdBy = p.buyerId")
     List<Payments> findSellerPayments(Integer buyerId);
 

@@ -1,6 +1,5 @@
 package com.onepiece.product_service.controller;
 
-
 import com.onepiece.product_service.model.ProductImage;
 import com.onepiece.product_service.service.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/product-images")
+@RequestMapping("/api/v1/product-service/product-images")
 @CrossOrigin
 public class ProductImageController {
 
@@ -117,8 +116,8 @@ public class ProductImageController {
             ProductImage image = productImageService.getImageById(imageId);
             if (image != null && image.getImageData() != null) {
                 return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_JPEG) // You might want to determine this based on actual image type
-                    .body(image.getImageData());
+                        .contentType(MediaType.IMAGE_JPEG)
+                        .body(image.getImageData());
             } else {
                 return ResponseEntity.notFound().build();
             }
@@ -127,4 +126,3 @@ public class ProductImageController {
         }
     }
 }
-

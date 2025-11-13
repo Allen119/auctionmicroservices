@@ -1,32 +1,24 @@
 package org.infra.genc.apigateway.filter;
 
-import org.infra.genc.apigateway.util.JwtUtil;
-import io.jsonwebtoken.Claims;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.infra.genc.apigateway.util.JwtUtil;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-import java.util.List;
+import reactor.core.publisher.Mono;
 
 @Component
 @Slf4j
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
 
-    // These constants are used for injecting trusted headers
-    public static final String AUTH_USER_ID_HEADER = "X-Auth-User-Id";
-    public static final String AUTH_USER_ROLES_HEADER = "X-Auth-User-Roles";
-
-    private final RouteValidator validator;
     private final JwtUtil jwtUtil;
 
-    public AuthenticationFilter(RouteValidator validator, JwtUtil jwtUtil) {
+    public AuthenticationFilter(JwtUtil jwtUtil) {
         super(Config.class);
-        this.validator = validator;
         this.jwtUtil = jwtUtil;
     }
 
@@ -36,58 +28,79 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
             ServerHttpRequest request = exchange.getRequest();
             ServerHttpResponse response = exchange.getResponse();
 
-            // 1. Check if the route is marked as secured by the RouteValidator
-            if (validator.isSecured.test(request)) {
+            if (isSecured(request)) {
+                String authHeader = request.getHeaders().getFirst("Authorization");
 
-                var headers = request.getHeaders();
-                List<String> authValues = headers.getOrEmpty(HttpHeaders.AUTHORIZATION);
-
-                if (authValues.isEmpty()) {
-                    log.warn("Missing Authorization header for request {}", request.getURI());
-                    return setUnauthorizedResponse(response);
-                }
-
-                String authHeader = authValues.get(0);
-                if (!StringUtils.hasText(authHeader) || !authHeader.startsWith("Bearer ")) {
-                    log.warn("Invalid Authorization header format for request {}", request.getURI());
-                    return setUnauthorizedResponse(response);
+                // ✅ Check Authorization header exists
+                if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                    return setUnauthorizedResponse(response, "Missing or invalid Authorization header");
                 }
 
                 String token = authHeader.substring(7);
+
                 try {
-                    // 2. Validate Token and Extract Claims
-                    jwtUtil.validateToken(token);
-                    Claims claims = jwtUtil.extractAllClaims(token);
+                    if (!jwtUtil.validateToken(token)) {
+                        return setUnauthorizedResponse(response, "Invalid or expired token");
+                    }
 
-                    String userId = claims.getSubject();
-                    String userRoles = claims.get("roles", String.class); // Get roles claim
+                    Integer userId = jwtUtil.extractUserId(token);           // "userId": 8
+                    String userName = jwtUtil.extractUsername(token);        // "sub": "@Allen"
+                    String roles = jwtUtil.extractRolesFromToken(token);     // "roles": "ROLE_BUYER,ROLE_ADMIN"
 
-                    // 3. Inject Trusted Headers for Downstream Services
+                    log.info("Token validation passed for user: {} (ID: {})", userName, userId);
+
+                    // ✅ CRITICAL: Check if user has roles (authorization requirement)
+                    if (roles == null || roles.trim().isEmpty()) {
+                        log.warn("UNAUTHORIZED: User {} (ID: {}) has NO ROLES assigned", userName, userId);
+                        return setUnauthorizedResponse(response, "User has no roles assigned - authorization required");
+                    }
+
+                    if (userId == null || userId <= 0) {
+                        log.warn("UNAUTHORIZED: Invalid userId for user: {}", userName);
+                        return setUnauthorizedResponse(response, "Invalid user ID in token");
+                    }
+
+                    log.info("✓ Authorization successful");
+                    log.info("  - Username: {} (sub claim)", userName);
+                    log.info("  - User ID: {}", userId);
+                    log.info("  - Roles: {}", roles);
+
                     ServerHttpRequest modifiedRequest = request.mutate()
-                            .header(AUTH_USER_ID_HEADER, userId)
-                            .header(AUTH_USER_ROLES_HEADER, userRoles != null ? userRoles : "GUEST")
+                            .header("X-Auth-User-Id", userId.toString())
+                            .header("X-Auth-User-Name", userName)
+                            .header("X-Auth-User-Roles", roles)
                             .build();
 
-                    // Replace the original exchange with the modified request
+                    log.debug("✓ Authorization headers injected: userId={}, userName={}, roles={}",
+                            userId, userName, roles);
+
                     exchange = exchange.mutate().request(modifiedRequest).build();
 
                 } catch (Exception e) {
-                    log.warn("Token validation failed for request {}: {}", request.getURI(), e.getMessage());
-                    return setUnauthorizedResponse(response);
+                    log.error("Token validation failed: {}", e.getMessage(), e);
+                    return setUnauthorizedResponse(response, "Token validation failed");
                 }
             }
 
-            log.debug("Authentication/Authorization Context passed for {}", request.getURI());
             return chain.filter(exchange);
         };
     }
 
-    private reactor.core.publisher.Mono<Void> setUnauthorizedResponse(ServerHttpResponse response) {
+    private boolean isSecured(ServerHttpRequest request) {
+        String path = request.getURI().getPath();
+        return !(path.contains("/auth/login") ||
+                path.contains("/auth/register") ||
+                path.contains("/actuator") ||
+                path.contains("/swagger-ui") ||
+                path.contains("/v3/api-docs"));
+    }
+
+    private Mono<Void> setUnauthorizedResponse(ServerHttpResponse response, String message) {
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
+        log.warn("❌ Unauthorized: {}", message);
         return response.setComplete();
     }
 
     public static class Config {
-        // Configuration placeholder
     }
 }

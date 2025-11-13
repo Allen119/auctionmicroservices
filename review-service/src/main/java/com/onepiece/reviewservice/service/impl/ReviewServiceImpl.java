@@ -141,19 +141,16 @@ public class ReviewServiceImpl implements ReviewService{
         return true;
     }
 
-//    @Override
-//    public List<ReviewDTO> findAll() {
-//        List<Review> allReviews = reviewRepository.findAll();
-//        log.info("{}",allReviews);
-//        List<ReviewDTO> reviewDTO =allReviews.stream()
-//                                    .map(e-> new ReviewDTO(e.getId(),
-//                                    e.getBuyerId(), e.getSellerId(),
-//                                    e.getAuctionId(), e.getReview(), e.getRating(),
-//                                    e.getCreatedAt(), e.getUpdatedAt(), e.getCreatedBy(), e.getUpdatedBy()))
-//                                    .collect(Collectors.toList());
-//        return reviewDTO;
-//
-//    }
-
-
+    @Override
+    public List<ReviewResponseDTO> findAll() {
+        List<Review> allReviews = reviewRepository.findAll();
+        log.info("{}",allReviews);
+        List<ReviewResponseDTO> reviewDTO =allReviews.stream()
+                                    .map(e-> new ReviewResponseDTO(e.getId(),
+                                    e.getBuyerId(), e.getSellerId(),
+                                    e.getAuctionId(), e.getReview(), e.getRating(),
+                                    e.getCreatedAt(), e.getUpdatedAt(), e.getCreatedBy(), e.getUpdatedBy()))
+                                    .collect(Collectors.toList());
+        return reviewDTO;
+    }
 }

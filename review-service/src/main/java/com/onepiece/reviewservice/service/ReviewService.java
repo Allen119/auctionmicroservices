@@ -15,9 +15,10 @@ public interface ReviewService {
 
     boolean deleteById(Integer id);
 
-//    List<ReviewDTO> findAll();
+    List<ReviewResponseDTO> findAll();
 
     List<ReviewResponseDTO> getMySellerReviews(Integer id);
 
     ReviewResponseDTO getReviewById(Integer id);
+
 }

@@ -1,11 +1,8 @@
 package com.onepiece.product_service.controller;
 
-
 import com.onepiece.product_service.dto.ProductRequestDTO;
 import com.onepiece.product_service.dto.ProductResponseDTO;
 import com.onepiece.product_service.model.Product;
-import com.onepiece.product_service.model.ProductImage;
-import com.onepiece.product_service.service.ProductImageService;
 import com.onepiece.product_service.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,30 +14,29 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/product-service/products")
 @CrossOrigin
 public class ProductController {
 
     @Autowired
     private ProductService productService;
-    
-    @Autowired
-    private ProductImageService productImageService;
 
-    @GetMapping("/products")
-    public List<ProductResponseDTO> getAllProducts() {
-
-        return productService.getAllProducts();
+    @GetMapping
+    public ResponseEntity<?> getAllProducts() {
+        try {
+            List<ProductResponseDTO> products = productService.getAllProducts();
+            return new ResponseEntity<>(products, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error fetching products: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-    
-    @PostMapping("/products/add-product")
+
+    @PostMapping(value = "/add-product", consumes = "multipart/form-data")
     public ResponseEntity<?> addProduct(
             @Valid @RequestPart ProductRequestDTO productRequest,
             @RequestPart(required = false) MultipartFile mainImage,
             @RequestPart(required = false) List<MultipartFile> additionalImages) {
-        
         try {
             ProductResponseDTO savedProduct = productService.addProduct(productRequest, mainImage, additionalImages);
             return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
@@ -53,7 +49,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/product/{productId}")
+    @GetMapping("/{productId}")
     public ResponseEntity<?> getProductById(@PathVariable int productId) {
         try {
             ProductResponseDTO product = productService.getProductById(productId);
@@ -61,21 +57,24 @@ public class ProductController {
         } catch (RuntimeException e) {
             return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>("Internal server error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error fetching product: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("/products/category/{category}")
-    public ResponseEntity<?> getProductsByCategory(@PathVariable Product.Category category) {
+    @GetMapping("/category/{category}")
+    public ResponseEntity<?> getProductsByCategory(@PathVariable String category) {
         try {
-            List<ProductResponseDTO> products = productService.getProductsByCategory(category);
+            Product.Category categoryEnum = Product.Category.valueOf(category.toUpperCase());
+            List<ProductResponseDTO> products = productService.getProductsByCategory(categoryEnum);
             return new ResponseEntity<>(products, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>("Invalid category: " + category, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             return new ResponseEntity<>("Error fetching products: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("/products/seller/{sellerId}")
+    @GetMapping("/seller/{sellerId}")
     public ResponseEntity<?> getProductsBySeller(@PathVariable int sellerId) {
         try {
             List<ProductResponseDTO> products = productService.getProductsBySellerId(sellerId);
@@ -86,32 +85,8 @@ public class ProductController {
             return new ResponseEntity<>("Error fetching products: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
-    @GetMapping("/products/images/{productId}")
-    public ResponseEntity<?> getProductImages(@PathVariable int productId) {
-        try {
-            List<ProductImage> images = productImageService.getImagesByProductId(productId);
-            return new ResponseEntity<>(images, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error fetching images: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-    
-    @GetMapping("/products/image/{imageId}")
-    public ResponseEntity<?> getProductImageById(@PathVariable int imageId) {
-        try {
-            ProductImage image = productImageService.getImageById(imageId);
-            if (image != null) {
-                return new ResponseEntity<>(image, HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("Image not found", HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error fetching image: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
-    @PutMapping("/products/update/{productId}")
+    @PutMapping(value = "/update/{productId}", consumes = "multipart/form-data")
     public ResponseEntity<?> updateProduct(
             @PathVariable int productId,
             @Valid @RequestPart ProductRequestDTO productRequest,
@@ -124,14 +99,12 @@ public class ProductController {
             return new ResponseEntity<>("Error processing images: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>("Invalid input: " + e.getMessage(), HttpStatus.BAD_REQUEST);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>("Product not found: " + e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>("Internal server error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @DeleteMapping("/products/delete/{productId}")
+    @DeleteMapping("/{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable int productId) {
         try {
             boolean deleted = productService.deleteProduct(productId);

@@ -1,27 +1,25 @@
 package com.onepiece.product_service.service;
 
-import com.onepiece.product_service.dto.AuctionResponseDTO;
-import com.onepiece.product_service.dto.BiddingResponseDTO;
 import com.onepiece.product_service.dto.ProductRequestDTO;
 import com.onepiece.product_service.dto.ProductResponseDTO;
+import com.onepiece.product_service.dto.ProductStatusUpdateDTO;
 import com.onepiece.product_service.mapper.ProductMapper;
 import com.onepiece.product_service.model.Product;
 import com.onepiece.product_service.model.ProductImage;
 import com.onepiece.product_service.repo.ProductImageRepo;
 import com.onepiece.product_service.repo.ProductRepo;
-import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.file.ProviderNotFoundException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class ProductService {
 
     @Autowired
@@ -31,83 +29,71 @@ public class ProductService {
     private ProductImageRepo productImageRepo;
 
     @Autowired
-    private UserClientService userClientService;
-    
-    @Autowired
     private ProductMapper productMapper;
 
-
     @Autowired
-    private AuctionClientService auctionClientService;
+    private AuctionService auctionService;
+
+
+    private static final long MAX_IMAGE_SIZE = 16 * 1024 * 1024;
 
     public List<ProductResponseDTO> getAllProducts() {
         List<Product> products = productRepo.findAll();
         return products.stream()
                 .map(product -> {
-                    List<ProductImage> additionalImages = productImageRepo.findByProductId(product.getProductId());
-                    return productMapper.toResponseDTO(product, additionalImages);
+                    List<ProductImage> images = productImageRepo.findByProductId(product.getProductId());
+                    return productMapper.toResponseDTO(product, images);
                 })
                 .toList();
     }
-    
+
     public ProductResponseDTO addProduct(ProductRequestDTO productDTO, MultipartFile mainImage,
                                          List<MultipartFile> additionalImages) throws IOException {
-        
-        final long MAX_IMAGE_SIZE = 16 * 1024 * 1024;
-        
-        if (mainImage != null && !mainImage.isEmpty()) {
-            if (mainImage.getSize() > MAX_IMAGE_SIZE) {
-                throw new IllegalArgumentException("Main image size exceeds 16MB limit. Current size: " + 
-                    (mainImage.getSize() / (1024 * 1024)) + "MB");
-            }
+
+        log.info("addProduct called with sellerId: {}", productDTO.getSellerId());
+
+        // Validate main image
+        if (mainImage == null || mainImage.isEmpty()) {
+            throw new IllegalArgumentException("Main image is required");
         }
-        
+        validateImageSize(mainImage, "Main image");
+
+        // Validate additional images
         if (additionalImages != null) {
             for (MultipartFile additionalImage : additionalImages) {
                 if (additionalImage != null && !additionalImage.isEmpty()) {
-                    if (additionalImage.getSize() > MAX_IMAGE_SIZE) {
-                        throw new IllegalArgumentException("Additional image size exceeds 16MB limit. Current size: " + 
-                            (additionalImage.getSize() / (1024 * 1024)) + "MB");
-                    }
+                    validateImageSize(additionalImage, "Additional image");
                 }
             }
         }
-        
+
+        // Create and save product
         Product product = productMapper.toEntity(productDTO);
-        
-        product.setCreatedAt(LocalDate.now());
-        product.setUpdatedAt(LocalDate.now());
-        product.setCreatedBy(productDTO.getSellerId());
-        product.setUpdatedBy(productDTO.getSellerId());
-        
-        if (mainImage != null && !mainImage.isEmpty()) {
-            product.setProductImg(mainImage.getBytes());
-        }
-        
         Product savedProduct = productRepo.save(product);
-        
+        log.info("Product saved with ID: {}", savedProduct.getProductId());
+
+        // Save main image
+        saveProductImage(savedProduct.getProductId(), mainImage);
+
+        // Save additional images
         if (additionalImages != null && !additionalImages.isEmpty()) {
             for (MultipartFile additionalImage : additionalImages) {
                 if (additionalImage != null && !additionalImage.isEmpty()) {
-                    ProductImage productImage = new ProductImage();
-                    productImage.setProductId(savedProduct.getProductId());
-                    productImage.setImageData(additionalImage.getBytes());
-                    productImageRepo.save(productImage);
+                    saveProductImage(savedProduct.getProductId(), additionalImage);
                 }
             }
         }
-        
-        List<ProductImage> additionalImagesFromDB = productImageRepo.findByProductId(savedProduct.getProductId());
-        
-        return productMapper.toResponseDTO(savedProduct, additionalImagesFromDB);
+
+        List<ProductImage> allImages = productImageRepo.findByProductId(savedProduct.getProductId());
+        return productMapper.toResponseDTO(savedProduct, allImages);
     }
 
     public ProductResponseDTO getProductById(int productId) {
         Optional<Product> productOpt = productRepo.findById(productId);
         if (productOpt.isPresent()) {
             Product product = productOpt.get();
-            List<ProductImage> additionalImages = productImageRepo.findByProductId(productId);
-            return productMapper.toResponseDTO(product, additionalImages);
+            List<ProductImage> images = productImageRepo.findByProductId(productId);
+            return productMapper.toResponseDTO(product, images);
         }
         throw new RuntimeException("Product not found with ID: " + productId);
     }
@@ -116,172 +102,135 @@ public class ProductService {
         List<Product> products = productRepo.getProductsByCategory(category);
         return products.stream()
                 .map(product -> {
-                    List<ProductImage> additionalImages = productImageRepo.findByProductId(product.getProductId());
-                    return productMapper.toResponseDTO(product, additionalImages);
+                    List<ProductImage> images = productImageRepo.findByProductId(product.getProductId());
+                    return productMapper.toResponseDTO(product, images);
                 })
                 .toList();
     }
 
     public List<ProductResponseDTO> getProductsBySellerId(int sellerId) {
-        boolean seller_check = userClientService.checkSellerRole(sellerId);
-        if(seller_check){
-            List<Product> products = productRepo.getProductsBySellerId(sellerId);
-            return products.stream()
-                    .map(product -> {
-                        List<ProductImage> additionalImages = productImageRepo.findByProductId(product.getProductId());
-                        return productMapper.toResponseDTO(product, additionalImages);
-                    })
-                    .toList();
-        } else {
-            throw new ProviderNotFoundException("Seller not Found");
+        if (!productRepo.existsBySellerId(sellerId)) {
+            throw new RuntimeException("Seller not found with ID: " + sellerId);
         }
+        List<Product> products = productRepo.getProductsBySellerId(sellerId);
+        return products.stream()
+                .map(product -> {
+                    List<ProductImage> images = productImageRepo.findByProductId(product.getProductId());
+                    return productMapper.toResponseDTO(product, images);
+                })
+                .toList();
     }
 
     @Transactional
-    public ProductResponseDTO updateProduct(int productId, @Valid ProductRequestDTO productRequest, MultipartFile mainImage, List<MultipartFile> additionalImages) throws IOException {
+    public ProductResponseDTO updateProduct(int productId, ProductRequestDTO productDTO,
+                                            MultipartFile mainImage, List<MultipartFile> additionalImages) throws IOException {
         Optional<Product> existingProductOpt = productRepo.findById(productId);
-
         if (!existingProductOpt.isPresent()) {
             throw new RuntimeException("Product not found with ID: " + productId);
         }
 
         Product existingProduct = existingProductOpt.get();
-
-        // Update product fields from DTO
-        productMapper.updateEntityFromDTO(productRequest, existingProduct);
-
-        // Update main image if provided
-        if (mainImage != null && !mainImage.isEmpty()) {
-            final long MAX_IMAGE_SIZE = 16 * 1024 * 1024;
-            if (mainImage.getSize() > MAX_IMAGE_SIZE) {
-                throw new IllegalArgumentException("Main image size exceeds 16MB limit. Current size: " +
-                    (mainImage.getSize() / (1024 * 1024)) + "MB");
-            }
-            existingProduct.setProductImg(mainImage.getBytes());
-        }
-
-        // Update metadata
-        existingProduct.setUpdatedAt(LocalDate.now());
-        existingProduct.setUpdatedBy(productRequest.getSellerId());
-
-        // Save updated product
+        productMapper.updateEntityFromDTO(productDTO, existingProduct);
         Product updatedProduct = productRepo.save(existingProduct);
 
-        // Handle additional images if provided
+        // Handle new images if provided
+        if (mainImage != null && !mainImage.isEmpty()) {
+            validateImageSize(mainImage, "Main image");
+            saveProductImage(updatedProduct.getProductId(), mainImage);
+        }
+
         if (additionalImages != null && !additionalImages.isEmpty()) {
-            final long MAX_IMAGE_SIZE = 16 * 1024 * 1024;
             for (MultipartFile additionalImage : additionalImages) {
                 if (additionalImage != null && !additionalImage.isEmpty()) {
-                    if (additionalImage.getSize() > MAX_IMAGE_SIZE) {
-                        throw new IllegalArgumentException("Additional image size exceeds 16MB limit. Current size: " +
-                            (additionalImage.getSize() / (1024 * 1024)) + "MB");
-                    }
-                    ProductImage productImage = new ProductImage();
-                    productImage.setProductId(updatedProduct.getProductId());
-                    productImage.setImageData(additionalImage.getBytes());
-                    productImageRepo.save(productImage);
+                    validateImageSize(additionalImage, "Additional image");
+                    saveProductImage(updatedProduct.getProductId(), additionalImage);
                 }
             }
         }
 
-        // Get all additional images and return response
-        List<ProductImage> additionalImagesFromDB = productImageRepo.findByProductId(updatedProduct.getProductId());
-        return productMapper.toResponseDTO(updatedProduct, additionalImagesFromDB);
+        List<ProductImage> allImages = productImageRepo.findByProductId(updatedProduct.getProductId());
+        return productMapper.toResponseDTO(updatedProduct, allImages);
     }
 
     @Transactional
     public boolean deleteProduct(int productId) {
         Optional<Product> productOpt = productRepo.findById(productId);
         if (productOpt.isPresent()) {
-            List<AuctionResponseDTO> auctions = auctionClientService.getAuctionsByProductId(productId);
-
-            for (AuctionResponseDTO auction : auctions) {
-                List<BiddingResponseDTO> biddings = auctionClientService.getBidsByAuctionId(auction.getAuctionId());
-                if (!biddings.isEmpty()) {
-                    for(BiddingResponseDTO bidding : biddings)
-                    auctionClientService.deleteBidById(bidding.getBidId());
-                }
-                auctionClientService.deleteAuction(auction.getAuctionId());
-
-            }
-
-            productImageRepo.deleteByProductId(productId);
-            
             productRepo.deleteById(productId);
             return true;
-        } else {
-            throw new RuntimeException("Product not found with ID: " + productId);
+        }
+        return false;
+    }
+
+    // Helper methods
+    private void validateImageSize(MultipartFile image, String imageName) {
+        if (image.getSize() > MAX_IMAGE_SIZE) {
+            throw new IllegalArgumentException(imageName + " size exceeds 16MB limit. Current size: " +
+                    (image.getSize() / (1024 * 1024)) + "MB");
         }
     }
 
-    public List<ProductResponseDTO> getPendingProducts() {
-        List<Product> products = productRepo.getPendingProducts();
-        return products.stream()
-                .map(product -> {
-                    List<ProductImage> additionalImages = productImageRepo.findByProductId(product.getProductId());
-                    return productMapper.toResponseDTO(product, additionalImages);
-                })
-                .toList();
+    private void saveProductImage(Integer productId, MultipartFile imageFile) throws IOException {
+        ProductImage productImage = new ProductImage();
+        productImage.setProductId(productId);
+        productImage.setImageData(imageFile.getBytes());
+        productImageRepo.save(productImage);
     }
-
-    public List<ProductResponseDTO> getProductsByStatus(Product.ProductStatus status) {
-        List<Product> products = productRepo.getProductsByStatus(status);
-        return products.stream()
-                .map(product -> {
-                    List<ProductImage> additionalImages = productImageRepo.findByProductId(product.getProductId());
-                    return productMapper.toResponseDTO(product, additionalImages);
-                })
-                .toList();
-    }
-
     @Transactional
-    public ProductResponseDTO approveProduct(int productId, int adminId) {
+    public ProductResponseDTO updateProductStatus(int productId, ProductStatusUpdateDTO statusUpdate) {
+        log.info("========== UPDATE PRODUCT STATUS ==========");
+        log.info("Searching for product ID: {}", productId);
+
         Optional<Product> productOpt = productRepo.findById(productId);
+
         if (!productOpt.isPresent()) {
+            log.error("❌ Product NOT FOUND in database - ID: {}", productId);
             throw new RuntimeException("Product not found with ID: " + productId);
         }
 
         Product product = productOpt.get();
-        product.setProductStatus(Product.ProductStatus.APPROVED);
-        product.setUpdatedAt(LocalDate.now());
-        product.setUpdatedBy(adminId);
+        log.info("✓ Product found - ID: {}, Current Status: {}", product.getProductId(), product.getProductStatus());
 
-        Product updatedProduct = productRepo.save(product);
-        List<ProductImage> additionalImages = productImageRepo.findByProductId(productId);
-        return productMapper.toResponseDTO(updatedProduct, additionalImages);
-    }
-
-    @Transactional
-    public ProductResponseDTO declineProduct(int productId, int adminId) {
-        Optional<Product> productOpt = productRepo.findById(productId);
-        if (!productOpt.isPresent()) {
-            throw new RuntimeException("Product not found with ID: " + productId);
+        // Validate and update status
+        try {
+            Product.ProductStatus newStatus = Product.ProductStatus.valueOf(statusUpdate.getProductStatus().toUpperCase());
+            product.setProductStatus(newStatus);
+            log.info("✓ Status changed from {} to {}", product.getProductStatus(), newStatus);
+        } catch (IllegalArgumentException e) {
+            log.error("❌ Invalid status: {}", statusUpdate.getProductStatus());
+            throw new IllegalArgumentException("Invalid product status. Allowed values: PENDING, APPROVED, DECLINED");
         }
 
-        Product product = productOpt.get();
-        product.setProductStatus(Product.ProductStatus.DECLINED);
-        product.setUpdatedAt(LocalDate.now());
-        product.setUpdatedBy(adminId);
-
+        // ✅ SAVE TO DATABASE FIRST
         Product updatedProduct = productRepo.save(product);
-        List<ProductImage> additionalImages = productImageRepo.findByProductId(productId);
-        return productMapper.toResponseDTO(updatedProduct, additionalImages);
-    }
+        log.info("✅ Product SAVED to database - productId: {}, status: {}", updatedProduct.getProductId(), updatedProduct.getProductStatus());
 
-    @Transactional
-    public ProductResponseDTO updateProductStatus(int productId, Product.ProductStatus status, int adminId) {
-        Optional<Product> productOpt = productRepo.findById(productId);
-        if (!productOpt.isPresent()) {
-            throw new RuntimeException("Product not found with ID: " + productId);
+        // ✅ FLUSH to ensure immediate persistence
+        productRepo.flush();
+        log.info("✅ Flushed to database");
+
+        // ✅ RE-FETCH from database to verify
+        Product verifyProduct = productRepo.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Failed to verify saved product"));
+        log.info("✅ Verified in database - ID: {}, Status: {}", verifyProduct.getProductId(), verifyProduct.getProductStatus());
+
+        // ✅ Now call auction service AFTER successful save
+        if (updatedProduct.getProductStatus() == Product.ProductStatus.APPROVED) {
+            try {
+                log.info("\n🎯 Product APPROVED - Creating Auction");
+                log.info("   📦 Product ID: {}", updatedProduct.getProductId());
+
+                auctionService.createAuctionForApprovedProduct(updatedProduct);
+
+                log.info("✅ Auction creation initiated for product ID: {}", updatedProduct.getProductId());
+            } catch (Exception e) {
+                log.error("❌ Failed to create auction for product {}: {}", productId, e.getMessage());
+                // Don't throw - auction failure shouldn't fail the product update
+                log.warn("⚠️ Continuing despite auction error");
+            }
         }
 
-        Product product = productOpt.get();
-        product.setProductStatus(status);
-        product.setUpdatedAt(LocalDate.now());
-        product.setUpdatedBy(adminId);
-
-        Product updatedProduct = productRepo.save(product);
-        List<ProductImage> additionalImages = productImageRepo.findByProductId(productId);
-        return productMapper.toResponseDTO(updatedProduct, additionalImages);
+        List<ProductImage> images = productImageRepo.findByProductId(productId);
+        return productMapper.toResponseDTO(verifyProduct, images);
     }
 }

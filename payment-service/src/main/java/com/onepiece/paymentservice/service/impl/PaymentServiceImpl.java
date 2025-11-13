@@ -1,5 +1,6 @@
 package com.onepiece.paymentservice.service.impl;
 
+import com.onepiece.paymentservice.dto.CreatePaymentFromBiddingDTO;
 import com.onepiece.paymentservice.dto.PaymentRequestDTO;
 import com.onepiece.paymentservice.dto.PaymentResponseDTO;
 import com.onepiece.paymentservice.model.Payments;
@@ -19,39 +20,49 @@ import java.util.stream.Collectors;
 public class PaymentServiceImpl implements PaymentService {
 
     public final PaymentRepository paymentRepository;
+//    @Override
+//    public PaymentResponseDTO createPayment(PaymentRequestDTO paymentRequestDTO) {
+//        Payments paymentEntity = new Payments(
+//                paymentRequestDTO.getBuyerId(),
+//                paymentRequestDTO.getSellerId(),
+//                paymentRequestDTO.getTransactionId(),
+//                paymentRequestDTO.getProductId(),
+//                paymentRequestDTO.getAuctionId(),
+//                paymentRequestDTO.getFinalAmount(),
+//                paymentRequestDTO.getPaymentMethod(),
+//                paymentRequestDTO.getTransactionStatus(),
+//                paymentRequestDTO.getCreatedBy(),
+//                paymentRequestDTO.getUpdatedBy()
+//        );
+//
+//        Payments payObj = paymentRepository.save(paymentEntity);
+//        PaymentResponseDTO responseDTO = new PaymentResponseDTO(
+//                payObj.getId(),
+//                payObj.getBuyerId(),
+//                payObj.getSellerId(),
+//                payObj.getTransactionId(),
+//                payObj.getProductId(),
+//                payObj.getAuctionId(),
+//                payObj.getFinalAmount(),
+//                payObj.getPaymentMethod(),
+//                payObj.getTransactionStatus(),
+//                payObj.getPaymentTime(),
+//                payObj.getCreatedAt(),
+//                payObj.getUpdatedAt(),
+//                payObj.getCreatedBy(),
+//                payObj.getUpdatedBy()
+//        );
+//        return responseDTO;
+//    }
     @Override
-    public PaymentResponseDTO createPayment(PaymentRequestDTO paymentRequestDTO) {
-        Payments paymentEntity = new Payments(
-                paymentRequestDTO.getBuyerId(),
-                paymentRequestDTO.getSellerId(),
-                paymentRequestDTO.getTransactionId(),
-                paymentRequestDTO.getProductId(),
-                paymentRequestDTO.getAuctionId(),
-                paymentRequestDTO.getFinalAmount(),
-                paymentRequestDTO.getPaymentMethod(),
-                paymentRequestDTO.getTransactionStatus(),
-                paymentRequestDTO.getCreatedBy(),
-                paymentRequestDTO.getUpdatedBy()
-        );
-
-        Payments payObj = paymentRepository.save(paymentEntity);
-        PaymentResponseDTO responseDTO = new PaymentResponseDTO(
-                payObj.getId(),
-                payObj.getBuyerId(),
-                payObj.getSellerId(),
-                payObj.getTransactionId(),
-                payObj.getProductId(),
-                payObj.getAuctionId(),
-                payObj.getFinalAmount(),
-                payObj.getPaymentMethod(),
-                payObj.getTransactionStatus(),
-                payObj.getPaymentTime(),
-                payObj.getCreatedAt(),
-                payObj.getUpdatedAt(),
-                payObj.getCreatedBy(),
-                payObj.getUpdatedBy()
-        );
-        return responseDTO;
+    public List<PaymentResponseDTO> getAllPayments(){
+        List<Payments> payments = paymentRepository.findAll();
+        List<PaymentResponseDTO> paymentResponseDTOList = payments.stream()
+                .map(e-> new PaymentResponseDTO(e.getId(),e.getBuyerId(),
+                        e.getSellerId(),e.getTransactionId(), e.getProductId(),
+                        e.getAuctionId(),e.getFinalAmount(),e.getPaymentMethod(),
+                        e.getTransactionStatus(), e.getPaymentTime(),e.getCreatedAt(),e.getUpdatedAt(),e.getCreatedBy(),e.getUpdatedBy())).toList();
+        return paymentResponseDTOList;
     }
 
     @Override
@@ -86,6 +97,51 @@ public class PaymentServiceImpl implements PaymentService {
                 savedPayments.getUpdatedAt(),
                 savedPayments.getCreatedBy(),
                 savedPayments.getUpdatedBy()
+        );
+        return responseDTO;
+    }
+
+    @Override
+    public PaymentResponseDTO createPaymentFromBidding(CreatePaymentFromBiddingDTO request) {
+
+        log.info("[ISC PAYMENT] Creating payment for auction: {}", request.getAuctionId());
+
+        // Auto-generate transactionId
+        String transactionId = "TXN-" + System.currentTimeMillis() + "-" + request.getAuctionId();
+
+        Payments paymentEntity = new Payments(
+                request.getBuyerId(),
+                request.getSellerId(),
+                transactionId,
+                request.getProductId(),
+                request.getAuctionId(),
+                request.getFinalAmount(),
+                "NIL",
+                "PENDING",
+                request.getBuyerId(),  // Created by buyer
+                request.getBuyerId()   // Updated by buyer
+        );
+
+        Payments payObj = paymentRepository.save(paymentEntity);
+
+        log.info("✅ ISC Payment saved: ID={}, TransactionID={}, Status={}",
+                payObj.getId(), payObj.getTransactionId(), payObj.getTransactionStatus());
+
+        PaymentResponseDTO responseDTO = new PaymentResponseDTO(
+                payObj.getId(),
+                payObj.getBuyerId(),
+                payObj.getSellerId(),
+                payObj.getTransactionId(),
+                payObj.getProductId(),
+                payObj.getAuctionId(),
+                payObj.getFinalAmount(),
+                payObj.getPaymentMethod(),
+                payObj.getTransactionStatus(),
+                payObj.getPaymentTime(),
+                payObj.getCreatedAt(),
+                payObj.getUpdatedAt(),
+                payObj.getCreatedBy(),
+                payObj.getUpdatedBy()
         );
         return responseDTO;
     }

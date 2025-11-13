@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -22,7 +23,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private int productId;
+    private Integer productId;
 
     @Column(name = "seller_id")
     private Integer sellerId;
@@ -31,13 +32,13 @@ public class Product {
     private String productModel;
 
     @Column(name = "model_year")
-    private int modelYear;
+    private Integer modelYear;
 
     @Column(name = "start_price")
-    private int startPrice;
+    private Integer startPrice;
 
     @Column(name = "price_jump")
-    private int priceJump;
+    private Integer priceJump;
 
     @Column(name = "detail")
     private String description;
@@ -49,52 +50,38 @@ public class Product {
     private LocalTime auctionStartTime;
 
     @Column(name = "auction_duration")
-    private int auctionDuration;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "product_status")
-    private ProductStatus productStatus;
-
-    public enum ProductStatus{
-        PENDING,
-        APPROVED,
-        DECLINED
-    };
-
-    @Column(name = "product_img", columnDefinition = "LONGBLOB")
-    @Lob
-    private byte[] productImg;
+    private LocalTime auctionDuration;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
     private Category category;
 
-    public enum Category
-    {
+    public enum Category {
         Antique,
         Vintage,
         Classic,
         Sports,
         Luxury
-    };
+    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "product_status", nullable = false)
+    private ProductStatus productStatus = ProductStatus.PENDING;
+
+    public enum ProductStatus {
+        PENDING,
+        APPROVED,
+        DECLINED
+    }
 
     @Version
     @Column(name = "version")
     private int version;
-
-    @CreatedDate
-    @Column(name = "created_at")
-    private LocalDate createdAt;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
-
-    @CreatedBy
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    private Instant createdAt;
+    @Column(name = "updated_at", nullable = false, insertable = false, updatable = false)
+    private Instant updatedAt;
     @Column(name = "created_by")
     private Integer createdBy;
-
-    @LastModifiedBy
     @Column(name = "updated_by")
     private Integer updatedBy;
 }

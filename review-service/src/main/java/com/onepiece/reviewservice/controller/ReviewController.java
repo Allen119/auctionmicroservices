@@ -19,21 +19,21 @@ import java.util.List;
 public class ReviewController {
     private final ReviewService reviewService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<ReviewResponseDTO> createReview(@Valid @RequestBody ReviewRequestDTO reviewRequestDTO){
         log.info("The auction id is # {}", reviewRequestDTO.getAuctionId());
         return new ResponseEntity<>(reviewService.createReview(reviewRequestDTO), HttpStatus.CREATED);
     }
 
-//    @GetMapping()
-//    public ResponseEntity<List<ReviewDTO>> getAllReviews(){
-//        return new ResponseEntity<>(reviewService.findAll(), HttpStatus.OK);
-//    }
+    @GetMapping()
+    public ResponseEntity<List<ReviewResponseDTO>> getAllReviews(){
+        return new ResponseEntity<>(reviewService.findAll(), HttpStatus.OK);
+    }
     @GetMapping("/{id}")
     public  ResponseEntity<?> getReview(@PathVariable Integer id){
         ReviewResponseDTO respDTO = reviewService.getReviewById(id);
         if(respDTO!=null) return new ResponseEntity<>(respDTO,HttpStatus.OK);
-        return new ResponseEntity<>("No department found", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("No review found", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("seller/{id}")

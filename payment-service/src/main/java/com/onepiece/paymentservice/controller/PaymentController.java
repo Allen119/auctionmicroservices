@@ -1,5 +1,6 @@
 package com.onepiece.paymentservice.controller;
 
+import com.onepiece.paymentservice.dto.CreatePaymentFromBiddingDTO;
 import com.onepiece.paymentservice.dto.PaymentRequestDTO;
 import com.onepiece.paymentservice.dto.PaymentResponseDTO;
 import com.onepiece.paymentservice.service.PaymentService;
@@ -19,13 +20,27 @@ import java.util.List;
 public class PaymentController {
 
     private final PaymentService paymentService;
-
     @PostMapping
-    public ResponseEntity<PaymentResponseDTO> createPayment(@Valid @RequestBody PaymentRequestDTO paymentRequestDTO) {
-        log.info("Received payment request for auction ID: {}", paymentRequestDTO.getAuctionId());
-        PaymentResponseDTO responseDTO = paymentService.createPayment(paymentRequestDTO);
+    public ResponseEntity<PaymentResponseDTO> createPaymentFromBidding(
+            @Valid @RequestBody CreatePaymentFromBiddingDTO request) {
+        PaymentResponseDTO responseDTO = paymentService.createPaymentFromBidding(request);
+
+        log.info("✅ Payment Created Successfully");
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
+
+    @GetMapping
+    public ResponseEntity<List<PaymentResponseDTO>> getAllPayments(){
+        List<PaymentResponseDTO> paymentDTOs = paymentService.getAllPayments();
+        return new ResponseEntity<>(paymentDTOs, HttpStatus.OK);
+    }
+
+//    @PostMapping
+//    public ResponseEntity<PaymentResponseDTO> createPayment(@Valid @RequestBody PaymentRequestDTO paymentRequestDTO) {
+//        log.info("Received payment request for auction ID: {}", paymentRequestDTO.getAuctionId());
+//        PaymentResponseDTO responseDTO = paymentService.createPayment(paymentRequestDTO);
+//        return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<PaymentResponseDTO> updatePaymentStatus(

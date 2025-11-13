@@ -1,22 +1,52 @@
-2025-11-06T00:13:30.029+05:30  INFO 38744 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Starting ReviewServiceApplication using Java 21 with PID 38744 (C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service\target\classes started by 2440741 in C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service)
-2025-11-06T00:13:30.065+05:30  INFO 38744 --- [review-service] [main] c.o.r.ReviewServiceApplication           : No active profile set, falling back to 1 default profile: "default"
-2025-11-06T00:13:35.029+05:30  INFO 38744 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-06T00:13:36.183+05:30  INFO 38744 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1105 ms. Found 1 JPA repository interface.
-2025-11-06T00:13:37.116+05:30  INFO 38744 --- [review-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=00856832-0bda-32ba-ac9f-78ed233dd1ee
-2025-11-06T00:13:39.820+05:30  INFO 38744 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4050 (http)
-2025-11-06T00:13:39.902+05:30  INFO 38744 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-06T00:13:39.905+05:30  INFO 38744 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
-2025-11-06T00:13:40.362+05:30  INFO 38744 --- [review-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-06T00:13:40.367+05:30  INFO 38744 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 10128 ms
-2025-11-06T00:13:41.422+05:30  INFO 38744 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-06T00:13:42.389+05:30  INFO 38744 --- [review-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64420e34
-2025-11-06T00:13:42.406+05:30  INFO 38744 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-06T00:13:42.613+05:30  INFO 38744 --- [review-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-06T00:13:42.945+05:30  INFO 38744 --- [review-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
-2025-11-06T00:13:43.227+05:30  INFO 38744 --- [review-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-11-06T00:13:44.667+05:30  INFO 38744 --- [review-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-11-06T00:13:44.962+05:30  WARN 38744 --- [review-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-11-06T00:13:45.019+05:30  INFO 38744 --- [review-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-10T00:03:10.921+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:08:10.942+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:13:10.956+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:18:10.970+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:23:10.981+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:28:10.994+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:33:11.008+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:38:11.011+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:43:11.017+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:48:11.027+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:53:11.031+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T00:58:11.041+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:13:49.453+05:30  WARN 24712 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m44s884ms914µs700ns).
+2025-11-10T01:17:32.916+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:22:32.922+05:30  INFO 24712 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:23:15.429+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REVIEW-SERVICE with eureka with status DOWN
+2025-11-10T01:23:15.430+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762717995430, current=DOWN, previous=UP]
+2025-11-10T01:23:15.430+05:30  INFO 24712 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
+2025-11-10T01:23:15.483+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-10T01:23:15.489+05:30  INFO 24712 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
+2025-11-10T01:23:15.503+05:30  INFO 24712 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-10T01:23:15.505+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-10T01:23:15.511+05:30  INFO 24712 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-10T01:23:15.628+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-10T01:23:15.658+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-10T01:23:15.668+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-10T01:23:15.670+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-11-10T01:23:18.675+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-11-10T01:23:18.809+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - deregister  status: 200
+2025-11-10T01:23:18.809+05:30  INFO 24712 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-11-10T01:23:27.961+05:30  INFO 33036 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Starting ReviewServiceApplication using Java 21 with PID 33036 (C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service\target\classes started by 2440741 in C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service)
+2025-11-10T01:23:27.965+05:30  INFO 33036 --- [review-service] [main] c.o.r.ReviewServiceApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-11-10T01:23:30.190+05:30  INFO 33036 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-10T01:23:30.377+05:30  INFO 33036 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 167 ms. Found 1 JPA repository interface.
+2025-11-10T01:23:30.738+05:30  INFO 33036 --- [review-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b8ed509e-cba8-39bf-8e18-6f85a0f4c138
+2025-11-10T01:23:31.533+05:30  INFO 33036 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4050 (http)
+2025-11-10T01:23:31.561+05:30  INFO 33036 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-10T01:23:31.562+05:30  INFO 33036 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-10T01:23:31.648+05:30  INFO 33036 --- [review-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-10T01:23:31.649+05:30  INFO 33036 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3619 ms
+2025-11-10T01:23:32.079+05:30  INFO 33036 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-10T01:23:32.345+05:30  INFO 33036 --- [review-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@343d1d25
+2025-11-10T01:23:32.347+05:30  INFO 33036 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-10T01:23:32.397+05:30  INFO 33036 --- [review-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-10T01:23:32.491+05:30  INFO 33036 --- [review-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-10T01:23:32.538+05:30  INFO 33036 --- [review-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-10T01:23:32.860+05:30  INFO 33036 --- [review-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-10T01:23:32.940+05:30  WARN 33036 --- [review-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-10T01:23:32.954+05:30  INFO 33036 --- [review-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.42
@@ -24,87 +54,500 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-11-06T00:13:47.989+05:30  INFO 38744 --- [review-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-11-06T00:13:48.189+05:30  INFO 38744 --- [review-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-11-06T00:13:48.883+05:30  INFO 38744 --- [review-service] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-11-06T00:13:50.785+05:30  WARN 38744 --- [review-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-11-06T00:13:53.642+05:30  INFO 38744 --- [review-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-11-06T00:13:53.760+05:30  WARN 38744 --- [review-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-11-06T00:13:54.063+05:30  INFO 38744 --- [review-service] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-11-06T00:13:54.151+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-11-06T00:13:54.165+05:30  INFO 38744 --- [review-service] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:13:54.197+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-11-06T00:13:54.198+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-11-06T00:13:54.198+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-11-06T00:13:54.198+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-11-06T00:13:54.198+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-11-06T00:13:54.198+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-11-06T00:13:54.198+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-11-06T00:13:55.723+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-11-06T00:13:55.731+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-11-06T00:13:55.739+05:30  INFO 38744 --- [review-service] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-11-06T00:13:55.745+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1762368235743 with initial instances count: 2
-2025-11-06T00:13:55.758+05:30  INFO 38744 --- [review-service] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REVIEW-SERVICE with eureka with status UP
-2025-11-06T00:13:55.763+05:30  INFO 38744 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762368235763, current=UP, previous=STARTING]
-2025-11-06T00:13:55.770+05:30  INFO 38744 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
-2025-11-06T00:13:55.861+05:30  INFO 38744 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4050 (http) with context path '/'
-2025-11-06T00:13:55.864+05:30  INFO 38744 --- [review-service] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 4050
-2025-11-06T00:13:55.957+05:30  INFO 38744 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
-2025-11-06T00:13:56.112+05:30  INFO 38744 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9200 (http)
-2025-11-06T00:13:56.114+05:30  INFO 38744 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-06T00:13:56.115+05:30  INFO 38744 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
-2025-11-06T00:13:56.253+05:30  INFO 38744 --- [review-service] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2025-11-06T00:13:56.254+05:30  INFO 38744 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 359 ms
-2025-11-06T00:13:56.297+05:30  INFO 38744 --- [review-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
-2025-11-06T00:13:56.480+05:30  INFO 38744 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9200 (http) with context path '/'
-2025-11-06T00:13:56.536+05:30  INFO 38744 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Started ReviewServiceApplication in 28.119 seconds (process running for 29.93)
-2025-11-06T00:18:54.209+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:23:54.215+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:28:54.226+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:33:54.232+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:38:54.246+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:43:54.248+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:48:54.262+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:53:54.264+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T00:58:54.279+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T01:03:54.285+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T05:20:23.544+05:30  WARN 38744 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h12m39s990ms416µs900ns).
-2025-11-06T08:44:47.830+05:30  WARN 38744 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h24m34s407ms15µs100ns).
-2025-11-06T08:45:05.951+05:30  INFO 38744 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T08:49:44.435+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REVIEW-SERVICE with eureka with status DOWN
-2025-11-06T08:49:44.446+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762399184446, current=DOWN, previous=UP]
-2025-11-06T08:49:44.447+05:30  INFO 38744 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
-2025-11-06T08:49:44.520+05:30  INFO 38744 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
-2025-11-06T08:49:44.655+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-06T08:49:44.748+05:30  INFO 38744 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-11-06T08:49:44.758+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-06T08:49:44.793+05:30  INFO 38744 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-11-06T08:49:45.324+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-11-06T08:49:45.442+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-11-06T08:49:45.483+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-11-06T08:49:45.497+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2025-11-06T08:49:48.513+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2025-11-06T08:49:48.566+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - deregister  status: 200
-2025-11-06T08:49:48.569+05:30  INFO 38744 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2025-11-06T13:31:46.007+05:30  INFO 37040 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Starting ReviewServiceApplication using Java 21 with PID 37040 (C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service\target\classes started by 2440741 in C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service)
-2025-11-06T13:31:46.012+05:30  INFO 37040 --- [review-service] [main] c.o.r.ReviewServiceApplication           : No active profile set, falling back to 1 default profile: "default"
-2025-11-06T13:31:47.957+05:30  INFO 37040 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-06T13:31:48.159+05:30  INFO 37040 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 179 ms. Found 1 JPA repository interface.
-2025-11-06T13:31:48.497+05:30  INFO 37040 --- [review-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=00856832-0bda-32ba-ac9f-78ed233dd1ee
-2025-11-06T13:31:49.671+05:30  INFO 37040 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4050 (http)
-2025-11-06T13:31:49.713+05:30  INFO 37040 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-06T13:31:49.713+05:30  INFO 37040 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
-2025-11-06T13:31:49.918+05:30  INFO 37040 --- [review-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-06T13:31:49.918+05:30  INFO 37040 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3827 ms
-2025-11-06T13:31:50.343+05:30  INFO 37040 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-06T13:31:50.615+05:30  INFO 37040 --- [review-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d8e4250
-2025-11-06T13:31:50.617+05:30  INFO 37040 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-06T13:31:50.686+05:30  INFO 37040 --- [review-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-06T13:31:50.829+05:30  INFO 37040 --- [review-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
-2025-11-06T13:31:50.920+05:30  INFO 37040 --- [review-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-11-06T13:31:51.432+05:30  INFO 37040 --- [review-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-11-06T13:31:51.586+05:30  WARN 37040 --- [review-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-11-06T13:31:51.611+05:30  INFO 37040 --- [review-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-10T01:23:33.708+05:30  INFO 33036 --- [review-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-10T01:23:33.779+05:30  INFO 33036 --- [review-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-10T01:23:34.126+05:30  INFO 33036 --- [review-service] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-10T01:23:34.954+05:30  WARN 33036 --- [review-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-10T01:23:35.610+05:30  WARN 33036 --- [review-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b9a0d061-5858-4ab7-9e44-fe359933ae19
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-10T01:23:35.623+05:30  INFO 33036 --- [review-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-10T01:23:36.250+05:30  INFO 33036 --- [review-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-11-10T01:23:36.283+05:30  WARN 33036 --- [review-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-11-10T01:23:36.350+05:30  INFO 33036 --- [review-service] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-11-10T01:23:36.373+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-11-10T01:23:36.376+05:30  INFO 33036 --- [review-service] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:23:36.384+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-11-10T01:23:36.385+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-11-10T01:23:36.385+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-11-10T01:23:36.385+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-11-10T01:23:36.385+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-11-10T01:23:36.385+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-11-10T01:23:36.385+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-11-10T01:23:36.807+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-11-10T01:23:36.808+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-11-10T01:23:36.810+05:30  INFO 33036 --- [review-service] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-11-10T01:23:36.811+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1762718016811 with initial instances count: 2
+2025-11-10T01:23:36.820+05:30  INFO 33036 --- [review-service] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REVIEW-SERVICE with eureka with status UP
+2025-11-10T01:23:36.821+05:30  INFO 33036 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762718016821, current=UP, previous=STARTING]
+2025-11-10T01:23:36.824+05:30  INFO 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
+2025-11-10T01:23:36.867+05:30  INFO 33036 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4050 (http) with context path '/'
+2025-11-10T01:23:36.868+05:30  INFO 33036 --- [review-service] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 4050
+2025-11-10T01:23:36.898+05:30  INFO 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
+2025-11-10T01:23:36.994+05:30  INFO 33036 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9200 (http)
+2025-11-10T01:23:36.995+05:30  INFO 33036 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-10T01:23:36.996+05:30  INFO 33036 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-10T01:23:37.055+05:30  INFO 33036 --- [review-service] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-11-10T01:23:37.055+05:30  INFO 33036 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 173 ms
+2025-11-10T01:23:37.080+05:30  INFO 33036 --- [review-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
+2025-11-10T01:23:37.142+05:30  INFO 33036 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9200 (http) with context path '/'
+2025-11-10T01:23:37.162+05:30  INFO 33036 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Started ReviewServiceApplication in 9.943 seconds (process running for 10.753)
+2025-11-10T01:28:36.403+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:33:36.419+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:35:00.555+05:30  INFO 33036 --- [review-service] [http-nio-4050-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-10T01:35:00.556+05:30  INFO 33036 --- [review-service] [http-nio-4050-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-10T01:35:00.561+05:30  INFO 33036 --- [review-service] [http-nio-4050-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-11-10T01:35:00.629+05:30  INFO 33036 --- [review-service] [http-nio-4050-exec-1] c.o.r.filter.JwtAuthenticationFilter     : User @Allen authenticated with roles: [ROLE_BUYER, ROLE_ADMIN]
+2025-11-10T01:35:00.830+05:30 DEBUG 33036 --- [review-service] [http-nio-4050-exec-1] org.hibernate.SQL                        : select r1_0.review_id,r1_0.auction_id,r1_0.buyer_id,r1_0.created_at,r1_0.created_by,r1_0.rating,r1_0.review,r1_0.seller_id,r1_0.updated_at,r1_0.updated_by,r1_0.version from reviews r1_0 where r1_0.review_id=?
+2025-11-10T01:36:44.794+05:30  INFO 33036 --- [review-service] [http-nio-4050-exec-2] c.o.r.filter.JwtAuthenticationFilter     : User @Allen authenticated with roles: [ROLE_BUYER, ROLE_ADMIN]
+2025-11-10T01:36:44.803+05:30 DEBUG 33036 --- [review-service] [http-nio-4050-exec-2] org.hibernate.SQL                        : select r1_0.review_id,r1_0.auction_id,r1_0.buyer_id,r1_0.created_at,r1_0.created_by,r1_0.rating,r1_0.review,r1_0.seller_id,r1_0.updated_at,r1_0.updated_by,r1_0.version from reviews r1_0 where r1_0.review_id=?
+2025-11-10T01:38:36.421+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:43:36.430+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:44:24.621+05:30  WARN 33036 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s871ms53µs200ns).
+2025-11-10T01:49:07.757+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:50:23.398+05:30  INFO 33036 --- [review-service] [http-nio-4050-exec-7] c.o.r.filter.JwtAuthenticationFilter     : User @Allen authenticated with roles: [ROLE_BUYER, ROLE_ADMIN]
+2025-11-10T01:50:23.405+05:30 DEBUG 33036 --- [review-service] [http-nio-4050-exec-7] org.hibernate.SQL                        : select r1_0.review_id,r1_0.auction_id,r1_0.buyer_id,r1_0.created_at,r1_0.created_by,r1_0.rating,r1_0.review,r1_0.seller_id,r1_0.updated_at,r1_0.updated_by,r1_0.version from reviews r1_0 where r1_0.review_id=?
+2025-11-10T01:54:07.771+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T01:59:07.777+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:04:07.780+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:09:07.788+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:14:07.791+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:19:07.812+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:24:07.825+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:29:07.834+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:34:07.846+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:37:07.570+05:30  WARN 33036 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m12s161ms394µs400ns).
+2025-11-10T02:39:50.006+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:44:50.010+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:49:50.015+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T02:54:50.019+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T03:16:40.400+05:30  WARN 33036 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m2s546ms290µs299ns).
+2025-11-10T03:16:46.533+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T08:49:28.214+05:30  WARN 33036 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h32m47s814ms215µs401ns).
+2025-11-10T08:54:03.374+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T08:59:03.381+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:04:03.397+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:09:03.404+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:20:48.877+05:30  WARN 33036 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m50s328ms266µs400ns).
+2025-11-10T09:23:31.331+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:28:31.337+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:33:31.341+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:38:31.344+05:30  INFO 33036 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:39:26.992+05:30  INFO 33036 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8760/eureka/} exception=I/O error on GET request for "http://localhost:8760/eureka/apps/delta": Connect to http://localhost:8760 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8760/eureka/apps/delta": Connect to http://localhost:8760 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8760 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:215)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:151)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 22 more
+
+2025-11-10T09:39:26.992+05:30  INFO 33036 --- [review-service] [DiscoveryClient-HeartbeatExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8760/eureka/} exception=I/O error on PUT request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050": Connect to http://localhost:8760 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050": Connect to http://localhost:8760 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:119)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:845)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1402)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8760 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:215)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:151)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 19 more
+
+2025-11-10T09:39:26.995+05:30  WARN 33036 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8760/eureka/apps/delta": Connect to http://localhost:8760 failed: Connection refused: no further information
+2025-11-10T09:39:27.002+05:30  WARN 33036 --- [review-service] [DiscoveryClient-HeartbeatExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on PUT request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050": Connect to http://localhost:8760 failed: Connection refused: no further information
+2025-11-10T09:39:27.052+05:30  INFO 33036 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8760/eureka/}, exception=I/O error on GET request for "http://localhost:8760/eureka/apps/delta": Connect to http://localhost:8760 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8760/eureka/apps/delta": Connect to http://localhost:8760 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8760 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:215)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:151)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 23 more
+
+2025-11-10T09:39:27.054+05:30  WARN 33036 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8760/eureka/apps/delta": Connect to http://localhost:8760 failed: Connection refused: no further information
+2025-11-10T09:39:27.057+05:30  INFO 33036 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2025-11-10T09:39:27.077+05:30  INFO 33036 --- [review-service] [DiscoveryClient-HeartbeatExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8760/eureka/}, exception=I/O error on PUT request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050": Connect to http://localhost:8760 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050": Connect to http://localhost:8760 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:119)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:845)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1402)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8760 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:215)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:151)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 20 more
+
+2025-11-10T09:39:27.086+05:30  WARN 33036 --- [review-service] [DiscoveryClient-HeartbeatExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on PUT request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050": Connect to http://localhost:8760 failed: Connection refused: no further information
+2025-11-10T09:39:27.096+05:30 ERROR 33036 --- [review-service] [DiscoveryClient-HeartbeatExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - was unable to send heartbeat!
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:845) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1402) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-11-10T09:39:37.598+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REVIEW-SERVICE with eureka with status DOWN
+2025-11-10T09:39:37.600+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762747777600, current=DOWN, previous=UP]
+2025-11-10T09:39:37.602+05:30  INFO 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
+2025-11-10T09:39:37.677+05:30  INFO 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8760/eureka/}, exception=I/O error on POST request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE": Connect to http://localhost:8760 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE": Connect to http://localhost:8760 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8760 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:215)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:151)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 22 more
+
+2025-11-10T09:39:37.678+05:30  WARN 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8760/eureka/apps/REVIEW-SERVICE": Connect to http://localhost:8760 failed: Connection refused: no further information
+2025-11-10T09:39:37.679+05:30  WARN 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-11-10T09:39:37.682+05:30  WARN 33036 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-11-10T09:39:37.713+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-10T09:39:37.795+05:30  INFO 33036 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-10T09:39:37.805+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-10T09:39:37.826+05:30  INFO 33036 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-10T09:39:38.017+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-10T09:39:38.087+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-10T09:39:38.249+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-10T09:39:38.262+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-11-10T09:39:41.266+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-11-10T09:39:42.127+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - deregister  status: 404
+2025-11-10T09:39:42.131+05:30  INFO 33036 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-11-10T09:40:02.402+05:30  INFO 18472 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Starting ReviewServiceApplication using Java 21 with PID 18472 (C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service\target\classes started by 2440741 in C:\Users\2440741\gencWorkspaces\backendmicroservices\review-service)
+2025-11-10T09:40:02.413+05:30  INFO 18472 --- [review-service] [main] c.o.r.ReviewServiceApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-11-10T09:40:06.843+05:30  INFO 18472 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-10T09:40:07.489+05:30  INFO 18472 --- [review-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 617 ms. Found 1 JPA repository interface.
+2025-11-10T09:40:08.989+05:30  INFO 18472 --- [review-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b8ed509e-cba8-39bf-8e18-6f85a0f4c138
+2025-11-10T09:40:12.565+05:30  INFO 18472 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4050 (http)
+2025-11-10T09:40:12.615+05:30  INFO 18472 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-10T09:40:12.616+05:30  INFO 18472 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-10T09:40:12.898+05:30  INFO 18472 --- [review-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-10T09:40:12.900+05:30  INFO 18472 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 10373 ms
+2025-11-10T09:40:13.677+05:30  INFO 18472 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-10T09:40:14.421+05:30  INFO 18472 --- [review-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@762da62b
+2025-11-10T09:40:14.426+05:30  INFO 18472 --- [review-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-10T09:40:14.564+05:30  INFO 18472 --- [review-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-10T09:40:14.831+05:30  INFO 18472 --- [review-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-10T09:40:14.942+05:30  INFO 18472 --- [review-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-10T09:40:16.382+05:30  INFO 18472 --- [review-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-10T09:40:16.988+05:30  WARN 18472 --- [review-service] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-10T09:40:17.097+05:30  INFO 18472 --- [review-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.42
@@ -112,89 +555,174 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-11-06T13:31:52.764+05:30  INFO 37040 --- [review-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-11-06T13:31:52.914+05:30  INFO 37040 --- [review-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-11-06T13:31:53.581+05:30  INFO 37040 --- [review-service] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-11-06T13:31:54.860+05:30  WARN 37040 --- [review-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-11-06T13:31:56.764+05:30  INFO 37040 --- [review-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-11-06T13:31:56.823+05:30  WARN 37040 --- [review-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-11-06T13:31:56.918+05:30  INFO 37040 --- [review-service] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-11-06T13:31:56.951+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-11-06T13:31:56.957+05:30  INFO 37040 --- [review-service] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T13:31:56.964+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-11-06T13:31:56.965+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-11-06T13:31:56.965+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-11-06T13:31:56.965+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-11-06T13:31:56.965+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-11-06T13:31:56.965+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-11-06T13:31:56.965+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-11-06T13:31:57.602+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-11-06T13:31:57.606+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-11-06T13:31:57.611+05:30  INFO 37040 --- [review-service] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-11-06T13:31:57.616+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1762416117614 with initial instances count: 0
-2025-11-06T13:31:57.623+05:30  INFO 37040 --- [review-service] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REVIEW-SERVICE with eureka with status UP
-2025-11-06T13:31:57.625+05:30  INFO 37040 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762416117625, current=UP, previous=STARTING]
-2025-11-06T13:31:57.628+05:30  INFO 37040 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
-2025-11-06T13:31:57.679+05:30  INFO 37040 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4050 (http) with context path '/'
-2025-11-06T13:31:57.680+05:30  INFO 37040 --- [review-service] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 4050
-2025-11-06T13:31:57.721+05:30  INFO 37040 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
-2025-11-06T13:31:57.854+05:30  INFO 37040 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9200 (http)
-2025-11-06T13:31:57.856+05:30  INFO 37040 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-06T13:31:57.857+05:30  INFO 37040 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
-2025-11-06T13:31:57.948+05:30  INFO 37040 --- [review-service] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2025-11-06T13:31:57.948+05:30  INFO 37040 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 252 ms
-2025-11-06T13:31:57.974+05:30  INFO 37040 --- [review-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
-2025-11-06T13:31:58.073+05:30  INFO 37040 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9200 (http) with context path '/'
-2025-11-06T13:31:58.114+05:30  INFO 37040 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Started ReviewServiceApplication in 12.989 seconds (process running for 14.022)
-2025-11-06T13:52:39.948+05:30  WARN 37040 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m49s216ms159µs500ns).
-2025-11-06T13:52:46.826+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-11-06T13:52:46.827+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-11-06T13:52:46.827+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-11-06T13:52:46.827+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-11-06T13:52:46.827+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-11-06T13:52:46.827+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2025-11-06T13:52:46.827+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-11-06T13:52:46.934+05:30  INFO 37040 --- [review-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-11-06T13:57:16.182+05:30  INFO 37040 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T14:02:16.205+05:30  INFO 37040 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T14:07:16.240+05:30  INFO 37040 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-11-06T14:48:54.729+05:30  WARN 37040 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m44s503ms744µs700ns).
-2025-11-06T14:48:54.983+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REVIEW-SERVICE with eureka with status DOWN
-2025-11-06T14:48:54.986+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762420734985, current=DOWN, previous=UP]
-2025-11-06T14:48:55.156+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-06T14:48:55.214+05:30  INFO 37040 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-11-06T14:48:55.229+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-06T14:48:55.237+05:30  INFO 37040 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-11-06T14:48:55.585+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-11-06T14:48:55.693+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-11-06T14:48:56.702+05:30  INFO 37040 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
-2025-11-06T14:48:57.397+05:30  WARN 37040 --- [review-service] [DiscoveryClient-%d] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+2025-11-10T09:40:22.225+05:30  INFO 18472 --- [review-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-10T09:40:22.701+05:30  INFO 18472 --- [review-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-10T09:40:24.240+05:30  INFO 18472 --- [review-service] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-10T09:40:27.240+05:30  WARN 18472 --- [review-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-10T09:40:29.900+05:30  WARN 18472 --- [review-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-java.util.concurrent.TimeoutException: null
-	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
-	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:65) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Using generated security password: ef82767f-9136-4dbf-b315-ca078ce06699
 
-2025-11-06T14:48:57.397+05:30  WARN 37040 --- [review-service] [DiscoveryClient-%d] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-java.util.concurrent.TimeoutException: null
-	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
-	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:65) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-11-06T14:49:03.599+05:30  INFO 37040 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
-2025-11-06T14:49:04.134+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-11-06T14:49:04.151+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2025-11-06T14:49:07.161+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2025-11-06T14:49:07.202+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - deregister  status: 200
-2025-11-06T14:49:07.203+05:30  INFO 37040 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-11-10T09:40:29.934+05:30  INFO 18472 --- [review-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-10T09:40:32.031+05:30  INFO 18472 --- [review-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-11-10T09:40:32.187+05:30  WARN 18472 --- [review-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-11-10T09:40:32.494+05:30  INFO 18472 --- [review-service] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-11-10T09:40:32.679+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-11-10T09:40:32.728+05:30  INFO 18472 --- [review-service] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:40:32.813+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-11-10T09:40:32.814+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-11-10T09:40:32.815+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-11-10T09:40:32.815+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-11-10T09:40:32.815+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-11-10T09:40:32.818+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-11-10T09:40:32.820+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-11-10T09:40:35.710+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-11-10T09:40:35.721+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-11-10T09:40:35.762+05:30  INFO 18472 --- [review-service] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-11-10T09:40:35.779+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1762747835773 with initial instances count: 2
+2025-11-10T09:40:35.802+05:30  INFO 18472 --- [review-service] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REVIEW-SERVICE with eureka with status UP
+2025-11-10T09:40:35.807+05:30  INFO 18472 --- [review-service] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762747835807, current=UP, previous=STARTING]
+2025-11-10T09:40:35.818+05:30  INFO 18472 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
+2025-11-10T09:40:36.025+05:30  INFO 18472 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4050 (http) with context path '/'
+2025-11-10T09:40:36.053+05:30  INFO 18472 --- [review-service] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 4050
+2025-11-10T09:40:36.284+05:30  INFO 18472 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
+2025-11-10T09:40:36.857+05:30  INFO 18472 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9200 (http)
+2025-11-10T09:40:36.868+05:30  INFO 18472 --- [review-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-10T09:40:36.869+05:30  INFO 18472 --- [review-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-10T09:40:37.197+05:30  INFO 18472 --- [review-service] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-11-10T09:40:37.197+05:30  INFO 18472 --- [review-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 894 ms
+2025-11-10T09:40:37.270+05:30  INFO 18472 --- [review-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
+2025-11-10T09:40:37.488+05:30  INFO 18472 --- [review-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9200 (http) with context path '/'
+2025-11-10T09:40:37.559+05:30  INFO 18472 --- [review-service] [main] c.o.r.ReviewServiceApplication           : Started ReviewServiceApplication in 36.425 seconds (process running for 37.734)
+2025-11-10T09:45:32.830+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:50:32.833+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T09:55:32.835+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:00:32.837+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:05:32.840+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:10:32.844+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:15:32.847+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:20:32.849+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:25:32.850+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:30:32.852+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:35:34.256+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:47:07.696+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m23s15ms967µs500ns).
+2025-11-10T10:50:30.320+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T10:55:30.331+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:00:30.334+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:05:30.341+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:10:30.342+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:15:30.347+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:20:30.353+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:25:30.357+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:30:30.363+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:35:30.365+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:40:30.367+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:45:30.369+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:50:30.372+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T11:55:30.374+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T12:00:30.376+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T12:05:30.379+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T12:10:30.381+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T12:15:30.390+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T12:20:30.398+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T12:25:30.401+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T13:54:12.232+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h26m34s89ms20µs500ns).
+2025-11-10T13:56:36.143+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:01:36.156+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:06:36.163+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:11:36.176+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:16:36.189+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:21:36.202+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:26:36.207+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:31:36.212+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:36:36.223+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:41:36.229+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:46:36.241+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:51:36.250+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T14:56:36.261+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:01:36.266+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:06:36.283+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:11:36.284+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:16:36.295+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:21:36.303+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:26:36.312+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:31:36.324+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:36:36.329+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:41:36.333+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:46:36.341+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:51:36.345+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T15:56:36.358+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:01:36.373+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:06:36.380+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:11:36.385+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:16:36.400+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:21:36.408+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:26:36.415+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:42:40.542+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m55s629ms527µs700ns).
+2025-11-10T16:46:26.279+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:48:03.949+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52s309ms30µs100ns).
+2025-11-10T16:51:53.287+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T16:56:53.289+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:05:35.325+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m1s225ms115µs600ns).
+2025-11-10T17:09:39.210+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:14:39.219+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:19:39.231+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:24:39.236+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:29:39.238+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:34:39.246+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:39:39.261+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:44:39.271+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:49:39.278+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T17:54:39.281+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T18:24:51.070+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m14s963ms306µs100ns).
+2025-11-10T18:29:40.216+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T18:34:40.223+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T18:39:40.240+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T18:44:40.257+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T18:49:37.186+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m15s746ms802µs).
+2025-11-10T18:50:26.371+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T18:55:26.383+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:00:26.396+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:05:26.408+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:10:26.417+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:13:03.759+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s247ms533µs).
+2025-11-10T19:15:52.658+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:20:52.668+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:25:52.682+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:30:52.692+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:35:52.696+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T19:52:47.331+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m13s217ms707µs800ns).
+2025-11-10T21:04:07.301+05:30  WARN 18472 --- [review-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h11m19s969ms21µs700ns).
+2025-11-10T21:07:35.546+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:12:35.552+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:17:17.390+05:30  INFO 18472 --- [review-service] [http-nio-4050-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-10T21:17:17.398+05:30  INFO 18472 --- [review-service] [http-nio-4050-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-10T21:17:17.477+05:30  INFO 18472 --- [review-service] [http-nio-4050-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 75 ms
+2025-11-10T21:17:35.561+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:22:35.567+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:27:35.580+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:32:35.588+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:37:35.599+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:42:35.608+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:47:35.620+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:52:35.630+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T21:57:35.638+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T22:02:35.647+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T22:07:35.653+05:30  INFO 18472 --- [review-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-10T22:11:52.168+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REVIEW-SERVICE with eureka with status DOWN
+2025-11-10T22:11:52.170+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1762792912170, current=DOWN, previous=UP]
+2025-11-10T22:11:52.175+05:30  INFO 18472 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050: registering service...
+2025-11-10T22:11:52.306+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-10T22:11:52.307+05:30  INFO 18472 --- [review-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - registration status: 204
+2025-11-10T22:11:52.362+05:30  INFO 18472 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-10T22:11:52.373+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-10T22:11:52.405+05:30  INFO 18472 --- [review-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-10T22:11:52.722+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-10T22:11:52.804+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-10T22:11:52.827+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-10T22:11:52.837+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-11-10T22:11:55.851+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-11-10T22:11:55.982+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REVIEW-SERVICE/LTIN650418.cts.com:review-service:4050 - deregister  status: 200
+2025-11-10T22:11:55.985+05:30  INFO 18472 --- [review-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

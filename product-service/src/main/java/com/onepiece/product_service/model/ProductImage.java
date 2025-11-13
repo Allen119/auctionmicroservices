@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.Instant;
 
 @Data
 @Entity
@@ -15,15 +16,15 @@ public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_id")
-    private int imageId;
+    private Integer imageId;
 
-    @Column(name = "product_id")
-    private int productId;
+    @Column(name = "product_id", nullable = false)
+    private Integer productId;
 
     @Column(name = "image_data", columnDefinition = "LONGBLOB")
     @Lob
     private byte[] imageData;
-    
-    @Column(name = "image_url")
-    private String imageUrl;
+
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    private Instant createdAt;
 }
