@@ -1,22 +1,20 @@
 package com.onepiece.bidding_service.service;
 
-
 import com.onepiece.bidding_service.dto.BiddingRequestDTO;
 import com.onepiece.bidding_service.dto.BiddingResponseDTO;
 import com.onepiece.bidding_service.dto.PlaceBidRequestDTO;
-import com.onepiece.bidding_service.dto.ProductResponseDTO;
 import com.onepiece.bidding_service.mapper.BiddingMapper;
 import com.onepiece.bidding_service.model.Auction;
 import com.onepiece.bidding_service.model.Bidding;
 import com.onepiece.bidding_service.repo.AuctionRepo;
 import com.onepiece.bidding_service.repo.BiddingRepo;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,29 +29,40 @@ public class BiddingService {
     private AuctionRepo auctionRepo;
 
     @Autowired
-    private ProductClientService productClientService;
-
-    @Autowired
     private BiddingMapper biddingMapper;
 
     public List<BiddingResponseDTO> getAllBids() {
         List<Bidding> bids = biddingRepo.findAll();
         return bids.stream()
-                .map(bid -> biddingMapper.toResponseDTO(bid))
+                .map(biddingMapper::toResponseDTO)
                 .collect(Collectors.toList());
     }
 
-    public BiddingResponseDTO addBidding(BiddingRequestDTO biddingDTO) throws IOException {
+    public BiddingResponseDTO addBidding(@Valid BiddingRequestDTO biddingDTO) {  // ✅ FIXED: No throws IOException
+
         Auction auction = auctionRepo.findById(biddingDTO.getAuctionId())
                 .orElseThrow(() -> new RuntimeException("Auction not found with ID: " + biddingDTO.getAuctionId()));
 
-        if (auction.getCurrStatus() != Auction.CurrStatus.ONGOING) {
-            throw new IllegalArgumentException("Cannot place bid. Auction status is: " + auction.getCurrStatus());
+        if (auction.getCurrStatus() != Auction.currStatus.ONGOING) {
+            throw new IllegalArgumentException(
+                    "Cannot place bid. Auction status is: " + auction.getCurrStatus());
         }
 
+        int minimumBid = auction.getCurrPrice() + biddingDTO.getPriceJump();
+        if (biddingDTO.getNewBidAmount() < minimumBid) {
+            throw new IllegalArgumentException(
+                    "Bid amount must be at least " + minimumBid +
+                            " (current price: " + auction.getCurrPrice() +
+                            " + price jump: " + biddingDTO.getPriceJump() + ")");
+        }
+
+        // Create bidding record
         Bidding bidding = biddingMapper.toEntity(biddingDTO);
-        bidding.setCreatedAt(LocalDateTime.now());
-        bidding.setUpdatedAt(LocalDateTime.now());
+
+        LocalDateTime now = LocalDateTime.now();
+        bidding.setBidTime(now);
+        bidding.setCreatedAt(now);
+        bidding.setUpdatedAt(now);
         bidding.setCreatedBy(biddingDTO.getBuyerId());
         bidding.setUpdatedBy(biddingDTO.getBuyerId());
 
@@ -75,47 +84,47 @@ public class BiddingService {
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
-    public BiddingResponseDTO placeBid(PlaceBidRequestDTO placeBidRequest) throws IOException {
+    public BiddingResponseDTO placeBid(@Valid PlaceBidRequestDTO placeBidRequest) {  // ✅ FIXED: No throws IOException
         int maxRetries = 3;
         int retryCount = 0;
 
         while (retryCount < maxRetries) {
             try {
                 Auction auction = auctionRepo.findByIdWithLock(placeBidRequest.getAuctionId())
-                        .orElseThrow(() -> new RuntimeException("Auction not found with ID: " + placeBidRequest.getAuctionId()));
+                        .orElseThrow(() -> new RuntimeException(
+                                "Auction not found with ID: " + placeBidRequest.getAuctionId()));
 
-                if (auction.getCurrStatus() != Auction.CurrStatus.ONGOING) {
-                    throw new IllegalArgumentException("Cannot place bid. Auction status is: " + auction.getCurrStatus());
+                if (auction.getCurrStatus() != Auction.currStatus.ONGOING) {
+                    throw new IllegalArgumentException(
+                            "Cannot place bid. Auction status is: " + auction.getCurrStatus());
                 }
 
-                ProductResponseDTO product = productClientService.getProductById(auction.getProductId());
-
-                // Validate bid amount
-                int bidAmount = placeBidRequest.getBidAmount();
-                int minimumBid = auction.getCurrPrice() + product.getPriceJump();
-
-                if (bidAmount < minimumBid) {
+                int minimumBid = auction.getCurrPrice() + placeBidRequest.getPriceJump();
+                if (placeBidRequest.getBidAmount() < minimumBid) {
                     throw new IllegalArgumentException(
-                        "Bid amount must be at least " + minimumBid +
-                        " (current price: " + auction.getCurrPrice() +
-                        " + price jump: " + product.getPriceJump() + ")");
+                            "Bid amount must be at least " + minimumBid +
+                                    " (current price: " + auction.getCurrPrice() +
+                                    " + price jump: " + placeBidRequest.getPriceJump() + ")");
                 }
 
                 Bidding newBidding = new Bidding();
                 newBidding.setAuctionId(placeBidRequest.getAuctionId());
                 newBidding.setBuyerId(placeBidRequest.getBuyerId());
-                newBidding.setNewBidAmount(bidAmount);
-                newBidding.setBidTime(LocalDateTime.now());
-                newBidding.setCreatedAt(LocalDateTime.now());
-                newBidding.setUpdatedAt(LocalDateTime.now());
+                newBidding.setNewBidAmount(placeBidRequest.getBidAmount());
+
+                LocalDateTime now = LocalDateTime.now();
+                newBidding.setBidTime(now);
+                newBidding.setCreatedAt(now);
+                newBidding.setUpdatedAt(now);
                 newBidding.setCreatedBy(placeBidRequest.getBuyerId());
                 newBidding.setUpdatedBy(placeBidRequest.getBuyerId());
 
-                auction.setCurrPrice(bidAmount);
+                auction.setCurrPrice(placeBidRequest.getBidAmount());
                 auction.setBidCount(auction.getBidCount() + 1);
-                auction.setUpdatedAt(LocalDateTime.now());
+                auction.setUpdatedAt(now);
                 auction.setUpdatedBy(placeBidRequest.getBuyerId());
 
+                // Save both records
                 Bidding savedBidding = biddingRepo.save(newBidding);
                 auctionRepo.save(auction);
 
@@ -124,32 +133,48 @@ public class BiddingService {
             } catch (OptimisticLockingFailureException e) {
                 retryCount++;
                 if (retryCount >= maxRetries) {
-                    throw new IOException("Failed to place bid after " + maxRetries +
-                        " attempts. The auction is experiencing high bidding activity. Please try again.");
+                    throw new RuntimeException(
+                            "Failed to place bid after " + maxRetries +
+                                    " attempts. The auction is experiencing high bidding activity. Please try again.");
                 }
+
+                // Exponential backoff: 100ms, 200ms, 300ms
                 try {
-                    Thread.sleep(100 * retryCount); // Exponential backoff
+                    Thread.sleep(100L * retryCount);
                 } catch (InterruptedException ie) {
                     Thread.currentThread().interrupt();
-                    throw new IOException("Bid placement interrupted");
+                    throw new RuntimeException("Bid placement interrupted");
                 }
             }
         }
 
-        throw new IOException("Failed to place bid due to concurrent access");
+        throw new RuntimeException("Failed to place bid due to concurrent access");
     }
 
     public List<BiddingResponseDTO> getBidsByAuctionId(int auctionId) {
-        List<Bidding> bids = biddingRepo.findByAuctionIdOrderByBidAmountDesc(auctionId);
+        List<Bidding> bids = biddingRepo.findByAuctionIdOrderByNewBidAmountDesc(auctionId);  // ✅ FIXED
         return bids.stream()
-                .map(bid -> biddingMapper.toResponseDTO(bid))
+                .map(biddingMapper::toResponseDTO)
                 .collect(Collectors.toList());
     }
 
     public List<BiddingResponseDTO> getBidsByBuyerId(int buyerId) {
         List<Bidding> bids = biddingRepo.findByBuyerId(buyerId);
         return bids.stream()
-                .map(bid -> biddingMapper.toResponseDTO(bid))
+                .map(biddingMapper::toResponseDTO)
                 .collect(Collectors.toList());
+    }
+
+
+    public BiddingResponseDTO getHighestBidForAuction(int auctionId) {
+        Bidding bidding = biddingRepo.findHighestBidForAuction(auctionId);
+        if (bidding == null) {
+            throw new RuntimeException("No bids found for auction ID: " + auctionId);
+        }
+        return biddingMapper.toResponseDTO(bidding);
+    }
+
+    public long getBidCountForAuction(int auctionId) {
+        return biddingRepo.countByAuctionId(auctionId);
     }
 }

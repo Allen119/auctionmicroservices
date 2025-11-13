@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -15,8 +15,11 @@ public class AuctionResponseDTO {
     private int auctionId;
     private int productId;
     private int currPrice;
+    private int priceJump;
     private String currStatus;
     private int bidCount;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private int createdBy;
+    private int updatedBy;
 }

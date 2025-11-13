@@ -8,11 +8,16 @@ import org.genc.usermgmt.enums.RoleType;
 import java.util.List;
 
 public interface RoleService {
+
     RoleResponseDTO createRole(RoleRequestDTO request);
-    RoleResponseDTO getRoleById(Long id);
+
+    RoleResponseDTO getRoleById(Integer roleId);  // Changed from Long to Integer
+
     List<RoleResponseDTO> getAllRoles();
-    RoleResponseDTO updateRole(Long id, RoleRequestDTO request);
-    void deleteRole(Long id);
+
+    RoleResponseDTO updateRole(Integer roleId, RoleRequestDTO request);  // Changed from Long to Integer
+
+    void deleteRole(Integer roleId);  // Changed from Long to Integer
+
     Role getRoleByName(RoleType roleType);
-    public Role seedRoleData(RoleRequestDTO request);
 }

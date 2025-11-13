@@ -1,6 +1,5 @@
 package com.onepiece.bidding_service.controller;
 
-
 import com.onepiece.bidding_service.dto.BiddingRequestDTO;
 import com.onepiece.bidding_service.dto.BiddingResponseDTO;
 import com.onepiece.bidding_service.dto.PlaceBidRequestDTO;
@@ -9,14 +8,12 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/bidding-service")
 @CrossOrigin
 public class BiddingController {
 
@@ -24,81 +21,56 @@ public class BiddingController {
     private BiddingService biddingService;
 
     @GetMapping("/bids")
-    public ResponseEntity<List<BiddingResponseDTO>> getAllBids(){
-        try {
-            List<BiddingResponseDTO> bids = biddingService.getAllBids();
-            return new ResponseEntity<>(bids, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<List<BiddingResponseDTO>> getAllBids() {
+        List<BiddingResponseDTO> bids = biddingService.getAllBids();
+        return new ResponseEntity<>(bids, HttpStatus.OK);
     }
 
-    @PostMapping("/bids")
-    public ResponseEntity<?> createBidding(@Valid @RequestBody BiddingRequestDTO biddingDTO){
-        try{
-            BiddingResponseDTO newBid = biddingService.addBidding(biddingDTO);
-            return new ResponseEntity<>(newBid, HttpStatus.CREATED);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-        } catch (IOException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    @PostMapping("/bids/add")
+    public ResponseEntity<BiddingResponseDTO> addBidding(@Valid @RequestBody BiddingRequestDTO biddingDTO) {
+        BiddingResponseDTO savedBid = biddingService.addBidding(biddingDTO);
+        return new ResponseEntity<>(savedBid, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/bids/place-bid")
+    public ResponseEntity<BiddingResponseDTO> placeBid(@Valid @RequestBody PlaceBidRequestDTO placeBidRequest) {
+        BiddingResponseDTO savedBid = biddingService.placeBid(placeBidRequest);
+        return new ResponseEntity<>(savedBid, HttpStatus.CREATED);
     }
 
     @GetMapping("/bid/{bidId}")
-    public ResponseEntity<?> getBidById(@PathVariable int bidId){
-        try {
-            BiddingResponseDTO bid = biddingService.getBidById(bidId);
-            return new ResponseEntity<>(bid, HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<BiddingResponseDTO> getBidById(@PathVariable int bidId) {
+        BiddingResponseDTO bid = biddingService.getBidById(bidId);
+        return new ResponseEntity<>(bid, HttpStatus.OK);
     }
 
     @DeleteMapping("/bid/{bidId}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<String> deleteBidById(@PathVariable int bidId){
-        try {
-            biddingService.deleteBidById(bidId);
-            return new ResponseEntity<>("Bid deleted successfully", HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @PostMapping("/place-bid")
-    public ResponseEntity<?> placeBid(@Valid @RequestBody PlaceBidRequestDTO placeBidRequest){
-        try{
-            BiddingResponseDTO updatedBid = biddingService.placeBid(placeBidRequest);
-            return new ResponseEntity<>(updatedBid, HttpStatus.OK);
-        } catch (IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        } catch (RuntimeException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-        } catch (IOException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
-        }
+    public ResponseEntity<String> deleteBid(@PathVariable int bidId) {
+        biddingService.deleteBidById(bidId);
+        return new ResponseEntity<>("Bid deleted successfully", HttpStatus.OK);
     }
 
     @GetMapping("/bids/auction/{auctionId}")
-    public ResponseEntity<?> getBidsByAuctionId(@PathVariable int auctionId){
-        try {
-            List<BiddingResponseDTO> bids = biddingService.getBidsByAuctionId(auctionId);
-            return new ResponseEntity<>(bids, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<List<BiddingResponseDTO>> getBidsByAuctionId(@PathVariable int auctionId) {
+        List<BiddingResponseDTO> bids = biddingService.getBidsByAuctionId(auctionId);
+        return new ResponseEntity<>(bids, HttpStatus.OK);
     }
 
     @GetMapping("/bids/buyer/{buyerId}")
-    public ResponseEntity<?> getBidsByBuyerId(@PathVariable int buyerId){
-        try {
-            List<BiddingResponseDTO> bids = biddingService.getBidsByBuyerId(buyerId);
-            return new ResponseEntity<>(bids, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<List<BiddingResponseDTO>> getBidsByBuyerId(@PathVariable int buyerId) {
+        List<BiddingResponseDTO> bids = biddingService.getBidsByBuyerId(buyerId);
+        return new ResponseEntity<>(bids, HttpStatus.OK);
+    }
+
+    @GetMapping("/bids/auction/{auctionId}/highest")
+    public ResponseEntity<BiddingResponseDTO> getHighestBidForAuction(@PathVariable int auctionId) {
+        BiddingResponseDTO highestBid = biddingService.getHighestBidForAuction(auctionId);
+        return new ResponseEntity<>(highestBid, HttpStatus.OK);
+    }
+
+    @GetMapping("/bids/auction/{auctionId}/count")
+    public ResponseEntity<Long> getBidCountForAuction(@PathVariable int auctionId) {
+        long count = biddingService.getBidCountForAuction(auctionId);
+        return new ResponseEntity<>(count, HttpStatus.OK);
     }
 }

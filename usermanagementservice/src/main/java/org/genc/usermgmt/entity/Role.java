@@ -1,23 +1,26 @@
 package org.genc.usermgmt.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.genc.usermgmt.enums.RoleType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Entity
+@Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Builder
-@Table(name = "roles")
 public class Role {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "role_id")
+    private Integer roleId;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType name;
+    @Column(name = "role_name", nullable = false, unique = true)
+    private String roleName;
 
-    private String description;
 }

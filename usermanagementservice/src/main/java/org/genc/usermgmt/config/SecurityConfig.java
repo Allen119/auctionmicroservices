@@ -57,16 +57,22 @@ public class SecurityConfig {
 
                 // 5. Define access rules for API endpoints
                 .authorizeHttpRequests(authorize -> authorize
-                        // Specific public endpoints for auth
-                        .requestMatchers(HttpMethod.POST, BASE_SERVICE_PATH + "/login/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, BASE_SERVICE_PATH + "/register/**").permitAll() // Assuming registration is here
+                        // Public endpoints for authentication
+                        .requestMatchers(HttpMethod.POST, BASE_SERVICE_PATH + "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, BASE_SERVICE_PATH + "/auth/register").permitAll()
 
-                        // Other public service endpoints
+                        // Public API documentation endpoints
                         .requestMatchers("/actuator/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
-                        // Restrict access for authenticated requests
-                        .requestMatchers(BASE_SERVICE_PATH+"/users/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers(BASE_SERVICE_PATH+"/roles/**").hasRole("ADMIN")
+                        // --- AUCTION PROJECT SPECIFIC RULES ---
+                        // Only ADMIN can manage roles
+                        .requestMatchers(BASE_SERVICE_PATH + "/roles/**").hasRole("ADMIN")
+
+                        // Only ADMIN can view all users
+                        .requestMatchers(HttpMethod.GET, BASE_SERVICE_PATH + "/users").hasRole("ADMIN")
+
+                        // Any authenticated user can access their own profile
+                        .requestMatchers(BASE_SERVICE_PATH + "/users/**").authenticated()
 
                         // All other endpoints require authentication
                         .anyRequest().authenticated()

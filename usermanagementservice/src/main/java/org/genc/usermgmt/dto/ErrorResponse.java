@@ -16,15 +16,14 @@ public class ErrorResponse {
     private String error;
     private String message;
     private String path;
-    private String traceId;
 
     public static ErrorResponse of(HttpStatus status, String message, String path) {
         return ErrorResponse.builder()
-            .timestamp(LocalDateTime.now())
-            .status(status.value())
-            .error(status.getReasonPhrase())
-            .message(message)
-            .path(path)
-            .build();
+                .timestamp(LocalDateTime.now())
+                .status(status.value())
+                .error(status.getReasonPhrase())
+                .message(message)
+                .path(path)
+                .build();
     }
 }

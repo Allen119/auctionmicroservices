@@ -22,5 +22,8 @@ public class PlaceBidRequestDTO {
     @NotNull(message = "Bid amount is required")
     @Positive(message = "Bid amount must be positive")
     private int bidAmount;
-}
 
+    @NotNull(message = "Price jump is required")  // ✅ NEW
+    @Positive(message = "Price jump must be positive")
+    private int priceJump;
+}

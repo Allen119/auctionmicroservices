@@ -58,5 +58,4 @@ public class Bidding {
     @LastModifiedBy
     @Column(name = "updated_by")
     private Integer updatedBy;
-
 }

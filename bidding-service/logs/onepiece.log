@@ -1,0 +1,35 @@
+2025-11-13T00:02:29.582+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:07:29.761+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:12:29.767+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:32:36.429+05:30  WARN 36184 --- [bidding-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m9s551ms127µs600ns).
+2025-11-13T00:33:09.323+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:38:09.325+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:43:09.333+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:48:09.345+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:53:09.351+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T00:58:09.355+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T01:03:09.363+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T06:01:07.258+05:30  WARN 36184 --- [bidding-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h58m382ms696µs400ns).
+2025-11-13T08:59:54.302+05:30  WARN 36184 --- [bidding-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h58m23s3ms223µs700ns).
+2025-11-13T09:03:35.427+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:08:35.498+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:13:35.541+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:18:35.565+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:23:35.581+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:28:35.592+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:33:35.599+05:30  INFO 36184 --- [bidding-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-11-13T09:34:23.488+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application BIDDING-SERVICE with eureka with status DOWN
+2025-11-13T09:34:23.490+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1763006663489, current=DOWN, previous=UP]
+2025-11-13T09:34:23.491+05:30  INFO 36184 --- [bidding-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BIDDING-SERVICE/LTIN650418.cts.com:bidding-service:3050: registering service...
+2025-11-13T09:34:23.530+05:30  INFO 36184 --- [bidding-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BIDDING-SERVICE/LTIN650418.cts.com:bidding-service:3050 - registration status: 204
+2025-11-13T09:34:23.600+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-13T09:34:23.691+05:30  INFO 36184 --- [bidding-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-13T09:34:23.695+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-13T09:34:23.709+05:30  INFO 36184 --- [bidding-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-13T09:34:23.960+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-13T09:34:24.020+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-13T09:34:24.034+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-13T09:34:24.037+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-11-13T09:34:27.062+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-11-13T09:34:27.219+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BIDDING-SERVICE/LTIN650418.cts.com:bidding-service:3050 - deregister  status: 200
+2025-11-13T09:34:27.222+05:30  INFO 36184 --- [bidding-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

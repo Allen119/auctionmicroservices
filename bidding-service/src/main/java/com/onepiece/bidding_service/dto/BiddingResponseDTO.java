@@ -19,5 +19,6 @@ public class BiddingResponseDTO {
     private LocalDateTime bidTime;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private int createdBy;
+    private int updatedBy;
 }
-

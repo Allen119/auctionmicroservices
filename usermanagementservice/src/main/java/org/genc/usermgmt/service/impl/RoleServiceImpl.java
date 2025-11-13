@@ -6,14 +6,12 @@ import org.genc.usermgmt.dto.RoleRequestDTO;
 import org.genc.usermgmt.dto.RoleResponseDTO;
 import org.genc.usermgmt.entity.Role;
 import org.genc.usermgmt.enums.RoleType;
-import org.genc.usermgmt.exception.RecordAlreadyExistsException;
 import org.genc.usermgmt.exception.ResourceNotFoundException;
 import org.genc.usermgmt.repo.RoleRepository;
 import org.genc.usermgmt.service.api.RoleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,38 +23,26 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleResponseDTO createRole(RoleRequestDTO request) {
-        Optional<Role> roleEntity = roleRepository.findByName(request.getName());
-        if(roleEntity.isEmpty()) {
-            Role role = Role.builder()
-                    .name(request.getName())
-                    .description(request.getDescription())
-                    .build();
-
-            Role savedRole = roleRepository.save(role);
-            return mapToDTO(savedRole);
+        // Check if role already exists
+        if (roleRepository.findByRoleName(request.getRoleName().name()).isPresent()) {
+            log.warn("Role already exists: {}", request.getRoleName().name());
+            throw new IllegalArgumentException("Role already exists: " + request.getRoleName().name());
         }
-        log.warn(" Role already exists {}",roleEntity.get().getName().toString());
-        return mapToDTO(roleEntity.get());
-    }
 
+        // Create new role
+        Role role = new Role();
+        role.setRoleName(request.getRoleName().name()); // "BUYER", "SELLER", "ADMIN"
 
-    public Role seedRoleData(RoleRequestDTO request) {
-        Optional<Role> roleEntity = roleRepository.findByName(request.getName());
-        if(roleEntity.isEmpty()) {
-            Role role = Role.builder()
-                    .name(request.getName())
-                    .description(request.getDescription())
-                    .build();
+        Role savedRole = roleRepository.save(role);
+        log.info("Role created: {}", savedRole.getRoleName());
 
-            return roleRepository.save(role);
-        }
-        return roleEntity.get();
+        return mapToDTO(savedRole);
     }
 
     @Override
-    public RoleResponseDTO getRoleById(Long id) {
-        Role role = roleRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Role not found with id: " + id));
+    public RoleResponseDTO getRoleById(Integer roleId) {
+        Role role = roleRepository.findById(roleId)
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found with id: " + roleId));
         return mapToDTO(role);
     }
 
@@ -67,41 +53,38 @@ public class RoleServiceImpl implements RoleService {
                 .collect(Collectors.toList());
     }
 
-
-
     @Override
-    public RoleResponseDTO updateRole(Long id, RoleRequestDTO request) {
-        Role role = roleRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Role not found with id: " + id));
+    public RoleResponseDTO updateRole(Integer roleId, RoleRequestDTO request) {
+        Role role = roleRepository.findById(roleId)
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found with id: " + roleId));
 
-        role.setName(request.getName());  // Now accepts RoleType directly
-        role.setDescription(request.getDescription());
-
+        role.setRoleName(request.getRoleName().name());
         Role updatedRole = roleRepository.save(role);
+
+        log.info("Role updated: {}", updatedRole.getRoleName());
         return mapToDTO(updatedRole);
     }
 
-
     @Override
-    public void deleteRole(Long id) {
-        if (!roleRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Role not found with id: " + id);
+    public void deleteRole(Integer roleId) {
+        if (!roleRepository.existsById(roleId)) {
+            throw new ResourceNotFoundException("Role not found with id: " + roleId);
         }
-        roleRepository.deleteById(id);
+        roleRepository.deleteById(roleId);
+        log.info("Role deleted with id: {}", roleId);
     }
 
     @Override
     public Role getRoleByName(RoleType roleType) {
-        Role role = roleRepository.findByName(roleType)
-                .orElseThrow(() -> new ResourceNotFoundException("Role not found with : " + roleType.toString()));;
+        Role role = roleRepository.findByRoleName(roleType.name())
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found: " + roleType.name()));
         return role;
     }
 
     private RoleResponseDTO mapToDTO(Role role) {
         return RoleResponseDTO.builder()
-                .id(role.getId())
-                .name(role.getName().toString())
-                .description(role.getDescription())
+                .roleId(role.getRoleId())
+                .roleName(role.getRoleName())
                 .build();
     }
 }
