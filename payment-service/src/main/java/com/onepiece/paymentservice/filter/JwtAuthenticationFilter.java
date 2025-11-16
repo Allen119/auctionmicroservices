@@ -26,19 +26,12 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    @Value("${service.secret:secret-key-12345}")
-    private String serviceSecret;
-
     private static final List<String> SKIPPED_PATHS = List.of(
             "/actuator",
             "/v3/api-docs",
             "/swagger-ui"
     );
 
-    // ✅ ISC endpoints (Service-to-Service)
-    private static final List<String> ISC_PATHS = List.of(
-            "/api/v1/payment-service"  // POST only (create payment)
-    );
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
@@ -52,40 +45,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String path = request.getRequestURI();
         String method = request.getMethod();
-
-        // ========== CHECK 1: ISC Endpoints (Service-to-Service) ==========
-        // ✅ ONLY POST /api/v1/payment-service is ISC
-        boolean isISCEndpoint = ISC_PATHS.stream().anyMatch(path::startsWith)
-                && "POST".equalsIgnoreCase(method);
-
-        if (isISCEndpoint) {
-            log.info("📡 ISC Request detected: {} {}", method, path);
-
-            String serviceAuthHeader = request.getHeader("X-Service-Secret");
-
-            if (serviceAuthHeader != null && serviceAuthHeader.equals(serviceSecret)) {
-                log.info("✅ ISC request VALIDATED - Service authenticated");
-
-                // Set dummy authentication for ISC
-                UsernamePasswordAuthenticationToken authToken =
-                        new UsernamePasswordAuthenticationToken(
-                                "ISC-SERVICE",
-                                null,
-                                new ArrayList<>()
-                        );
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authToken);
-
-                filterChain.doFilter(request, response);
-                return;
-            } else {
-                log.warn("❌ ISC request REJECTED - Invalid or missing service secret");
-                response.setStatus(401);
-                response.setContentType("application/json");
-                response.getWriter().write("{\"error\": \"Unauthorized - Invalid Service Secret\"}");
-                return;
-            }
-        }
 
         // ========== CHECK 2: Client Requests (via API Gateway) ==========
         log.info("👤 Client Request detected: {} {}", method, path);

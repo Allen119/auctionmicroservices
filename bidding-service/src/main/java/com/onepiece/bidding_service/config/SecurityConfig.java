@@ -37,15 +37,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        // ✅ Disable CSRF for stateless API
         http.csrf(AbstractHttpConfigurer::disable);
 
-        // ✅ Add JWT filter before authentication filter
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        // ✅ Configure authorization with role-based access control
         http.authorizeHttpRequests(request -> request
-                // PUBLIC ENDPOINTS (GET requests only)
                 .requestMatchers("GET", "/api/v1/bidding-service/auctions").authenticated()
                 .requestMatchers("GET", "/api/v1/bidding-service/auction/**").authenticated()
                 .requestMatchers("GET", "/api/v1/bidding-service/auctions/product/**").authenticated()
@@ -56,22 +52,18 @@ public class SecurityConfig {
                 .requestMatchers("GET", "/api/v1/bidding-service/bids/auction/**").authenticated()
                 .requestMatchers("GET", "/api/v1/bidding-service/bids/buyer/**").authenticated()
 
-                // Actuator endpoints
                 .requestMatchers("/actuator/**").permitAll()
                 .requestMatchers("/v3/api-docs/**").permitAll()
                 .requestMatchers("/swagger-ui/**").permitAll()
 
-                // PROTECTED ENDPOINTS - Require authentication
                 .requestMatchers("PUT", "/api/v1/bidding-service/auction/**").authenticated()
                 .requestMatchers("DELETE", "/api/v1/bidding-service/auction/**").authenticated()
                 .requestMatchers("POST", "/api/v1/bidding-service/bids/**").authenticated()
 
-                // Admin only endpoints (example)
                 .requestMatchers("DELETE", "/api/v1/bidding-service/**").hasRole("ADMIN")
                 .requestMatchers("DELETE", "/api/v1/bidding-service/bid/**").hasRole("ADMIN")
 
                 .requestMatchers("POST", "/api/v1/bidding-service/auctions/**").permitAll()
-                // All other requests require authentication
                 .anyRequest().authenticated()
         );
         http.exceptionHandling(exception -> exception

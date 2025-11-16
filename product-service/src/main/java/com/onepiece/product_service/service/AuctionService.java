@@ -28,9 +28,6 @@ public class AuctionService {
     @Value("${payment.service.url}")
     private String biddingServiceUrl;
 
-    @Value("${service.secret:product-service-secret-key-12345}")
-    private String serviceSecret;
-
     public void createAuctionForApprovedProduct(Product product) {
         log.info("\n════════════════════════════════════════════════════════════");
         log.info("🎯 PRODUCT APPROVED - Initiating ISC with Bidding Service");
@@ -54,7 +51,7 @@ public class AuctionService {
 
             log.info("✓ Auction Request DTO Built:");
             log.info("  📦 Product ID: {}", auctionDTO.getProductId());
-            log.info("  💵 Starting Price: ₹{}", auctionDTO.getStartingPrice());  // ✅ FIXED
+            log.info("  💵 Starting Price: ₹{}", auctionDTO.getStartingPrice());
             log.info("  🏷️  Price Jump: ₹{}", auctionDTO.getPriceJump());
             log.info("  📊 Bid Count: {}", auctionDTO.getBidCount());
             log.info("  🔔 Status: {}", auctionDTO.getCurrStatus());
@@ -109,10 +106,6 @@ public class AuctionService {
             // ========== Create Headers ==========
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-
-            // Add service authentication header
-            headers.add("X-Service-Secret", serviceSecret);
-            log.info("📡 Header: X-Service-Secret = [PROTECTED]");
 
             // Forward JWT headers from incoming request
             HttpServletRequest httpRequest = getHttpServletRequest();

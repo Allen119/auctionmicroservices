@@ -38,8 +38,6 @@ public class AuctionCompletionService {
     @Value("${payment.service.url:http://localhost:4040/api/v1/payment-service}")
     private String paymentServiceUrl;
 
-    @Value("${service.secret:bidding-service-secret-key-12345}")
-    private String serviceSecret;
 
     /**
      * ✅ When Auction Status Changes to COMPLETED
@@ -109,9 +107,6 @@ public class AuctionCompletionService {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
 
-            // ✅ Add service authentication header
-            headers.add("X-Service-Secret", serviceSecret);
-            log.info("📡 Adding X-Service-Secret header for service authentication");
 
             // ✅ Forward JWT headers from incoming request to Payment Service
             HttpServletRequest httpRequest = getHttpServletRequest();

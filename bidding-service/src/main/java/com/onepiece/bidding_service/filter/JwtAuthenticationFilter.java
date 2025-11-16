@@ -44,7 +44,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String userName = request.getHeader("X-Auth-User-Name");
         String userRoles = request.getHeader("X-Auth-User-Roles");
 
-        // ✅ If no userId or roles = unauthorized
         if (userId != null && !userId.isEmpty() && userRoles != null && !userRoles.isEmpty()) {
             try {
                 Collection<SimpleGrantedAuthority> authorities = Arrays.stream(userRoles.split(","))

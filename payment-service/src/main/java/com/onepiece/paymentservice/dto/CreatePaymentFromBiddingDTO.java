@@ -5,11 +5,6 @@ import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-/**
- * ✅ DTO received from Bidding Service (ISC)
- * Minimal fields for ISC payment creation
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
